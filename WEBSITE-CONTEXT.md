@@ -123,3 +123,4 @@ namou-website/
 | 2026-03-13 | `cd5d6e3` | Add images to action cards and broker section |
 | 2026-03-13 | `21be6b3` | Switch to white default with dark mode toggle, DM Sans + Roboto Mono fonts |
 | 2026-03-13 | `a1f1a0a` | UX copy overhaul, Starlink-style hero with glass router cards, Material Symbols icons |
+| 2026-03-13 | `acef152` | Visual overhaul: bento lanes grid, grain texture, atmospheric gradients, hero entrance animation, staggered reveals, green glow hovers, gradient stat numbers |
