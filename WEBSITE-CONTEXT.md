@@ -122,3 +122,4 @@ namou-website/
 | 2026-03-13 | `71abffd` | Phase 1: Namou homepage redesign — dark/bold Starlink-inspired design |
 | 2026-03-13 | `cd5d6e3` | Add images to action cards and broker section |
 | 2026-03-13 | `21be6b3` | Switch to white default with dark mode toggle, DM Sans + Roboto Mono fonts |
+| 2026-03-13 | `a1f1a0a` | UX copy overhaul, Starlink-style hero with glass router cards, Material Symbols icons |
