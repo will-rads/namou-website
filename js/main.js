@@ -55,7 +55,7 @@
 
   // --- Scroll Reveal Animation ---
   var revealElements = document.querySelectorAll(
-    '.action-card, .advantage, .stat, .broker-feature, .property-card, .contact__text, .contact__info'
+    '.router-card, .lane, .stat, .broker-feature, .property-card, .contact__text, .contact__info'
   );
 
   // Add reveal class

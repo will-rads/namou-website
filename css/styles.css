@@ -226,17 +226,19 @@ img {
 
 
 /* ===========================================
-   2. HERO SECTION
+   2. HERO SECTION (Starlink-style)
    =========================================== */
 .hero {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: calc(var(--nav-height) + 60px) 24px 100px;
+  padding: calc(var(--nav-height) + 60px) 24px 80px;
   position: relative;
   overflow: hidden;
+  gap: 64px;
 }
 
 .hero::before {
@@ -284,71 +286,68 @@ img {
   justify-content: center;
 }
 
-
-/* ===========================================
-   3. TWO-ACTION SECTION
-   =========================================== */
-.actions {
-  padding: 120px 0;
-  border-top: 1px solid var(--color-border);
-}
-
-.actions__grid {
+/* --- Glass Router Cards --- */
+.hero__router {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  width: 100%;
+  max-width: var(--container-max);
+  padding: 0 24px;
 }
 
-.action-card {
-  background: var(--color-bg-card);
+.router-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all var(--transition);
-}
-.action-card:hover {
-  border-color: var(--color-green);
-  transform: translateY(-2px);
-}
-
-.action-card__image {
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: #1a1a1a;
-}
-
-.action-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-.action-card:hover .action-card__image img {
-  transform: scale(1.03);
-}
-
-.action-card__body {
   padding: 36px 32px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  flex: 1;
+  gap: 12px;
+  transition: all var(--transition);
 }
 
-.action-card__title {
-  font-size: 26px;
-  font-weight: 500;
+/* Light mode: subtle grey glass */
+:root .router-card {
+  background: rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+:root .router-card:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: var(--color-green);
+}
+
+/* Dark mode: dark glass */
+[data-theme="dark"] .router-card {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+}
+[data-theme="dark"] .router-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--color-green);
+}
+
+.router-card__title {
+  font-size: 22px;
+  font-weight: 600;
   color: var(--color-heading);
   line-height: 1.2;
 }
 
-.action-card__text {
-  font-size: 16px;
-  line-height: 1.7;
+.router-card__text {
+  font-size: 15px;
+  line-height: 1.6;
   color: var(--color-text);
-  flex: 1;
+}
+
+.router-card__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
 }
 
 
@@ -383,48 +382,60 @@ img {
 
 
 /* ===========================================
-   4. WHY NAMOU / ADVANTAGES
+   4. HOW WE HELP / AUDIENCE LANES
    =========================================== */
-.advantages {
+.lanes {
   padding: 120px 0;
   border-top: 1px solid var(--color-border);
 }
 
-.advantages__grid {
+.lanes__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 48px;
 }
 
-.advantage {
-  padding: 32px 28px;
+.lane {
+  padding: 36px 32px;
   border-radius: var(--radius);
   border: 1px solid var(--color-border);
   background: var(--color-bg-card);
   transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
-.advantage:hover {
+.lane:hover {
   border-color: rgba(0, 176, 115, 0.3);
   background: var(--color-bg-card-hover);
 }
 
-.advantage__icon {
+.lane__audience {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--color-green);
-  margin-bottom: 20px;
 }
 
-.advantage h3 {
-  font-size: 18px;
+.lane__title {
+  font-size: 22px;
   font-weight: 600;
   color: var(--color-heading);
-  margin-bottom: 10px;
+  line-height: 1.2;
 }
 
-.advantage p {
+.lane__text {
   font-size: 15px;
   line-height: 1.6;
   color: var(--color-text);
+  flex: 1;
+}
+
+.lane .btn {
+  margin-top: 8px;
+  align-self: flex-start;
 }
 
 
@@ -458,6 +469,13 @@ img {
   color: var(--color-heading);
   line-height: 1;
   display: inline;
+}
+
+.stat__prefix {
+  font-size: clamp(24px, 3vw, 36px);
+  color: var(--color-green);
+  font-weight: 400;
+  line-height: 1;
 }
 
 .stat__suffix {
@@ -521,9 +539,10 @@ img {
   color: var(--color-text);
 }
 
-.broker-feature svg {
+.broker-feature .material-symbols-outlined {
   color: var(--color-green);
   flex-shrink: 0;
+  font-size: 24px;
 }
 
 .brokers__actions {
@@ -664,9 +683,10 @@ img {
   align-items: flex-start;
 }
 
-.contact__detail svg {
+.contact__detail .material-symbols-outlined {
   color: var(--color-green);
   flex-shrink: 0;
+  font-size: 22px;
   margin-top: 2px;
 }
 
@@ -771,9 +791,8 @@ img {
   color: var(--color-heading);
   border-color: var(--color-heading);
 }
-.theme-toggle svg {
-  width: 18px;
-  height: 18px;
+.theme-toggle .material-symbols-outlined {
+  font-size: 20px;
 }
 .theme-toggle .icon-moon { display: block; }
 .theme-toggle .icon-sun { display: none; }
@@ -781,14 +800,12 @@ img {
 [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 
 /* Light mode card shadows */
-:root .action-card,
-:root .advantage,
+:root .lane,
 :root .property-card {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-[data-theme="dark"] .action-card,
-[data-theme="dark"] .advantage,
+[data-theme="dark"] .lane,
 [data-theme="dark"] .property-card {
   box-shadow: none;
 }
@@ -817,8 +834,9 @@ img {
    RESPONSIVE — TABLET (<=900px)
    =========================================== */
 @media (max-width: 900px) {
-  .actions__grid {
+  .hero__router {
     grid-template-columns: 1fr;
+    max-width: 560px;
   }
 
   .brokers__inner {
@@ -826,8 +844,13 @@ img {
     gap: 40px;
   }
 
-  .advantages__grid {
+  .lanes__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .lanes__grid .lane:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    justify-self: center;
   }
 
   .stats__grid {
@@ -944,27 +967,27 @@ img {
     justify-content: center;
   }
 
-  /* Actions */
-  .actions {
+  /* Router cards */
+  .hero__router {
+    gap: 16px;
+  }
+
+  .router-card {
+    padding: 28px 24px;
+  }
+
+  /* Lanes */
+  .lanes {
     padding: 80px 0;
   }
 
-  .action-card {
-    padding: 32px 24px;
-  }
-
-  .action-card__title {
-    font-size: 22px;
-  }
-
-  /* Advantages */
-  .advantages {
-    padding: 80px 0;
-  }
-
-  .advantages__grid {
+  .lanes__grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+  .lanes__grid .lane:last-child {
+    grid-column: auto;
+    max-width: 100%;
   }
 
   /* Stats */
