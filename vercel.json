@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/faxation-Namou-main/index.html" },
+    { "source": "/:path*", "destination": "/faxation-Namou-main/:path*" }
+  ]
+}
