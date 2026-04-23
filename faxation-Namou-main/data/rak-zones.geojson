@@ -1,0 +1,77 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "id": "al-marjan", "name": "Al Marjan Island" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [55.735, 25.800], [55.770, 25.815],
+          [55.790, 25.800], [55.780, 25.785],
+          [55.755, 25.780], [55.735, 25.800]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "al-hamra", "name": "Al Hamra" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [55.770, 25.725], [55.800, 25.725],
+          [55.800, 25.700], [55.770, 25.700],
+          [55.770, 25.725]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "mina-al-arab", "name": "Mina Al Arab" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [55.810, 25.845], [55.840, 25.845],
+          [55.840, 25.825], [55.810, 25.825],
+          [55.810, 25.845]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "al-jazeera", "name": "Al Jazeera Al Hamra" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [55.775, 25.705], [55.800, 25.705],
+          [55.800, 25.690], [55.775, 25.690],
+          [55.775, 25.705]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "rak-central", "name": "RAK Central" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [55.920, 25.800], [55.960, 25.800],
+          [55.960, 25.775], [55.920, 25.775],
+          [55.920, 25.800]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "rak-mainland", "name": "RAK Mainland" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [55.930, 25.770], [55.980, 25.770],
+          [55.980, 25.730], [55.930, 25.730],
+          [55.930, 25.770]
+        ]]
+      }
+    }
+  ]
+}

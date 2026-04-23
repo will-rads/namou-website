@@ -1,0 +1,17 @@
+[
+  { "id": "PLT-001", "zone": "Al Marjan Island", "zoning": "Residential", "size_sqft": 12000, "price_aed": 8500000, "title": "Marjan beachfront residential" },
+  { "id": "PLT-002", "zone": "Al Marjan Island", "zoning": "Hospitality", "size_sqft": 45000, "price_aed": 28000000, "title": "Marjan hotel development plot" },
+  { "id": "PLT-003", "zone": "Al Marjan Island", "zoning": "Mixed-use", "size_sqft": 25000, "price_aed": 18000000, "title": "Marjan mixed-use waterfront" },
+  { "id": "PLT-004", "zone": "Al Hamra", "zoning": "Residential", "size_sqft": 8000, "price_aed": 4200000, "title": "Al Hamra village residential" },
+  { "id": "PLT-005", "zone": "Al Hamra", "zoning": "Commercial", "size_sqft": 15000, "price_aed": 9500000, "title": "Al Hamra commercial centre" },
+  { "id": "PLT-006", "zone": "Mina Al Arab", "zoning": "Residential", "size_sqft": 10000, "price_aed": 5800000, "title": "Mina Al Arab waterfront residential" },
+  { "id": "PLT-007", "zone": "Mina Al Arab", "zoning": "Mixed-use", "size_sqft": 20000, "price_aed": 12000000, "title": "Mina Al Arab mixed-use" },
+  { "id": "PLT-008", "zone": "Al Jazeera Al Hamra", "zoning": "Residential", "size_sqft": 6000, "price_aed": 1800000, "title": "Al Jazeera heritage residential" },
+  { "id": "PLT-009", "zone": "RAK Central", "zoning": "Commercial", "size_sqft": 5000, "price_aed": 3200000, "title": "RAK Central commercial" },
+  { "id": "PLT-010", "zone": "RAK Central", "zoning": "Mixed-use", "size_sqft": 12000, "price_aed": 7500000, "title": "RAK Central mixed-use" },
+  { "id": "PLT-011", "zone": "RAK Mainland", "zoning": "Industrial", "size_sqft": 30000, "price_aed": 4500000, "title": "RAK Mainland industrial" },
+  { "id": "PLT-012", "zone": "RAK Mainland", "zoning": "Residential", "size_sqft": 8000, "price_aed": 1500000, "title": "RAK Mainland residential" },
+  { "id": "PLT-013", "zone": "RAK Mainland", "zoning": "Commercial", "size_sqft": 15000, "price_aed": 3800000, "title": "RAK Mainland commercial" },
+  { "id": "PLT-014", "zone": "Al Marjan Island", "zoning": "Residential", "size_sqft": 18000, "price_aed": 15000000, "title": "Marjan premium residential" },
+  { "id": "PLT-015", "zone": "Al Hamra", "zoning": "Hospitality", "size_sqft": 35000, "price_aed": 22000000, "title": "Al Hamra resort development" }
+]

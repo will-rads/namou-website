@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joint Ventures — Namou Properties</title>
+  <meta name="description" content="Access structured joint-venture opportunities in Ras Al Khaimah. Namou connects investors with vetted landowners, contractors, and operators.">
+  <link rel="icon" href="../assets/images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    :root {
+      --color-bg: #f7fbf8;
+      --color-bg-alt: #e8f4ee;
+      --color-heading: #003d2e;
+      --color-text: #314158;
+      --color-text-light: #5a8b7a;
+      --color-border: rgba(0, 61, 46, 0.1);
+      --color-green: #00b073;
+      --color-green-hover: #00c980;
+      --color-green-subtle: rgba(0, 176, 115, 0.1);
+      --color-nav-bg: rgba(247, 251, 248, 0.85);
+      --color-nav-bg-scroll: rgba(247, 251, 248, 0.95);
+    }
+    [data-theme="dark"] {
+      --color-bg: #0a1a14;
+      --color-bg-alt: #0f231b;
+      --color-heading: #e8f4ee;
+      --color-text: #7aab9a;
+      --color-text-light: #5a8b7a;
+      --color-border: rgba(135, 198, 174, 0.12);
+      --color-green: #00b073;
+      --color-green-hover: #00c980;
+      --color-green-subtle: rgba(0, 176, 115, 0.16);
+      --color-nav-bg: rgba(10, 26, 20, 0.85);
+      --color-nav-bg-scroll: rgba(10, 26, 20, 0.95);
+    }
+
+    .jv { padding: calc(var(--nav-height) + 40px) 20px 80px; }
+    .jv-wrap { max-width: 720px; margin: 0 auto; }
+    @media (min-width: 1200px) {
+      .jv { padding-left: 5vw; padding-right: 5vw; }
+      .jv-wrap { max-width: 100%; }
+      .jv-hero h1 { font-size: clamp(36px, 3.5vw, 56px); }
+      .jv-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+      .jv-card { padding: 32px; }
+      .jv-step { margin-bottom: 48px; }
+      .jv-step h3 { font-size: 22px; }
+      .jv-tree { max-width: 800px; }
+      .jv-screens { max-width: 960px; margin-left: auto; margin-right: auto; }
+      .jv-screens__grid { gap: 28px; }
+      .jv-cta { max-width: 800px; margin: 0 auto; }
+    }
+
+    /* Hero */
+    .jv-hero { text-align: center; margin-bottom: 56px; }
+    .jv-hero__label {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--color-green-subtle);
+      color: var(--color-green);
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .jv-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      color: var(--color-heading);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .jv-hero p {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--color-text);
+      line-height: 1.7;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* Process tree */
+    .jv-tree {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 56px;
+    }
+    .jv-tree::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: var(--color-border);
+    }
+    .jv-step {
+      position: relative;
+      margin-bottom: 40px;
+    }
+    .jv-step:last-child { margin-bottom: 0; }
+    .jv-step__dot {
+      position: absolute;
+      left: -40px;
+      top: 2px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--color-green);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+    .jv-step h3 {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-heading);
+      margin-bottom: 6px;
+    }
+    .jv-step p {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--color-text);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .jv-step__details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .jv-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--color-bg-alt);
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-heading);
+    }
+    .jv-tag .material-symbols-outlined {
+      font-size: 16px;
+      color: var(--color-green);
+    }
+
+    /* Screenshots section */
+    .jv-screens {
+      margin-bottom: 56px;
+    }
+    .jv-screens h2 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-heading);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .jv-screens > p {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--color-text);
+      text-align: center;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .jv-screens__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .jv-screen-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg);
+    }
+    .jv-screen-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .jv-screen-card__caption {
+      padding: 14px 16px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text);
+      text-align: center;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* Why section */
+    .jv-why {
+      margin-bottom: 56px;
+    }
+    .jv-why h2 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-heading);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .jv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .jv-card {
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid var(--color-border);
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    [data-theme="dark"] .jv-card {
+      background: rgba(135, 198, 174, 0.04);
+      border-color: rgba(135, 198, 174, 0.08);
+    }
+    .jv-card .material-symbols-outlined {
+      font-size: 28px;
+      color: var(--color-green);
+      margin-bottom: 12px;
+    }
+    .jv-card h3 {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-heading);
+      margin-bottom: 4px;
+    }
+    .jv-card p {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--color-text);
+      line-height: 1.5;
+    }
+
+    /* CTA */
+    .jv-cta {
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 24px;
+      border: 1px solid var(--color-border);
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    [data-theme="dark"] .jv-cta {
+      background: rgba(135, 198, 174, 0.04);
+      border-color: rgba(135, 198, 174, 0.08);
+    }
+    .jv-cta h2 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-heading);
+      margin-bottom: 8px;
+    }
+    .jv-cta p {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--color-text);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .jv-cta .btn {
+      border-radius: 12px;
+      font-size: 16px;
+      padding: 14px 28px;
+    }
+
+    /* Privacy note */
+    .jv-privacy {
+      text-align: center;
+      margin-top: 20px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--color-text-light);
+    }
+
+    @media (max-width: 600px) {
+      .jv-grid { grid-template-columns: 1fr; }
+      .jv-screens__grid { grid-template-columns: 1fr; }
+      .jv-hero h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="/" class="nav__logo" data-analytics="nav-logo" data-section="nav">
+        <img src="../assets/images/logo.png" alt="Namou Properties" width="120" height="44" class="logo-light">
+        <img src="../assets/images/logo-dark.png" alt="Namou Properties" width="120" height="44" class="logo-dark">
+      </a>
+
+      <div class="nav__menu" id="navMenu">
+        <a href="/featured-property" class="nav__link">Buy</a>
+        <a href="/landowner" class="nav__link">Sell</a>
+        <a href="/broker" class="nav__link">Brokers</a>
+      </div>
+
+      <div class="nav__right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" data-analytics="theme-toggle" data-section="nav">
+          <span class="material-symbols-outlined icon-moon">dark_mode</span>
+          <span class="material-symbols-outlined icon-sun">light_mode</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="jv">
+    <div class="jv-wrap">
+
+      <!-- Hero -->
+      <div class="jv-hero">
+        <span class="jv-hero__label">Joint-venture investments</span>
+        <h1>Invest in the project, not just the land</h1>
+        <p>Access development-grade returns without managing the build yourself.</p>
+      </div>
+
+      <!-- Process tree -->
+      <div class="jv-tree">
+
+        <div class="jv-step">
+          <div class="jv-step__dot">1</div>
+          <h3>Express your interest</h3>
+          <p>A confidential WhatsApp conversation to understand your investment appetite and timeline.</p>
+          <div class="jv-step__details">
+            <span class="jv-tag"><span class="material-symbols-outlined">lock</span>Fully confidential</span>
+            <span class="jv-tag"><span class="material-symbols-outlined">bolt</span>Response within minutes</span>
+          </div>
+        </div>
+
+        <div class="jv-step">
+          <div class="jv-step__dot">2</div>
+          <h3>We identify the right opportunity</h3>
+          <p>We match you with landowners, development partners, and operators from our vetted network.</p>
+          <div class="jv-step__details">
+            <span class="jv-tag"><span class="material-symbols-outlined">handshake</span>Matchmaking across all parties</span>
+            <span class="jv-tag"><span class="material-symbols-outlined">verified</span>Rigorously vetted partners</span>
+          </div>
+        </div>
+
+        <div class="jv-step">
+          <div class="jv-step__dot">3</div>
+          <h3>Model the returns together</h3>
+          <p>A private video call where we model build costs, revenues, profit splits, and exit scenarios live.</p>
+          <div class="jv-step__details">
+            <span class="jv-tag"><span class="material-symbols-outlined">smart_display</span>Live video call</span>
+            <span class="jv-tag"><span class="material-symbols-outlined">monitoring</span>Real-time ROI modelling</span>
+            <span class="jv-tag"><span class="material-symbols-outlined">tune</span>Tailored to your deal</span>
+          </div>
+        </div>
+
+        <div class="jv-step">
+          <div class="jv-step__dot">4</div>
+          <h3>Agree on the structure</h3>
+          <p>Partnership agreements, profit-sharing terms, and responsibilities confirmed in writing before capital moves.</p>
+          <div class="jv-step__details">
+            <span class="jv-tag"><span class="material-symbols-outlined">gavel</span>Legal agreements</span>
+            <span class="jv-tag"><span class="material-symbols-outlined">paid</span>Profit split confirmed</span>
+            <span class="jv-tag"><span class="material-symbols-outlined">description</span>Full transparency</span>
+          </div>
+        </div>
+
+        <div class="jv-step">
+          <div class="jv-step__dot">5</div>
+          <h3>Execution and returns</h3>
+          <p>Appointed partners manage the build and operations; returns are distributed as agreed.</p>
+          <div class="jv-step__details">
+            <span class="jv-tag"><span class="material-symbols-outlined">engineering</span>Managed execution</span>
+            <span class="jv-tag"><span class="material-symbols-outlined">trending_up</span>Returns per agreement</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Simulator screenshots -->
+      <div class="jv-screens">
+        <h2>The Namou Investment Simulator</h2>
+        <p>Three investment strategies, modelled live during your video call.</p>
+        <div class="jv-screens__grid">
+          <div class="jv-screen-card">
+            <img src="../assets/images/jv-strategies.png" alt="Three joint-venture investment strategies: Sell-Out, Income, and Hospitality models" loading="lazy">
+            <div class="jv-screen-card__caption">Choose from three investment structures</div>
+          </div>
+          <div class="jv-screen-card">
+            <img src="../assets/images/jv-simulator.png" alt="Joint-venture simulator showing live ROI calculations, build costs, and profit splits" loading="lazy">
+            <div class="jv-screen-card__caption">Live ROI modelling with real numbers</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Namou for JV -->
+      <div class="jv-why">
+        <h2>Why investors choose Namou</h2>
+        <div class="jv-grid">
+          <div class="jv-card">
+            <span class="material-symbols-outlined">hub</span>
+            <h3>End-to-end matchmaking</h3>
+            <p>Investors paired with landowners, contractors, and operators for each deal.</p>
+          </div>
+          <div class="jv-card">
+            <span class="material-symbols-outlined">shield</span>
+            <h3>Rigorously vetted partners</h3>
+            <p>Every partner selected for track record, financial standing, and delivery capability.</p>
+          </div>
+          <div class="jv-card">
+            <span class="material-symbols-outlined">monitoring</span>
+            <h3>Transparent projections</h3>
+            <p>Build cost, GDV, and profit margins modelled before you commit.</p>
+          </div>
+          <div class="jv-card">
+            <span class="material-symbols-outlined">diversity_3</span>
+            <h3>Accessible entry points</h3>
+            <p>Participate in large-scale developments at a fraction of standalone acquisition cost.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="jv-cta">
+        <h2>Explore a joint-venture opportunity</h2>
+        <p>Tell us what you're looking for. We'll walk you through the numbers live.</p>
+        <a href="https://wa.me/971569636360?text=Hi%2C%20I%27m%20interested%20in%20exploring%20joint-venture%20investment%20opportunities%20in%20RAK." target="_blank" rel="noopener" class="btn btn--wa" data-analytics="whatsapp-cta" data-section="jv-cta">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Start the conversation
+        </a>
+        <span class="wa-response"><span class="material-symbols-outlined">bolt</span>Replies in under 2 minutes</span>
+        <p class="jv-privacy">Your details are shared only with your assigned Namou specialist. We never sell or share your data.</p>
+      </div>
+
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq" style="margin-top: 40px;">
+      <div class="container">
+        <div class="faq__header">
+          <h2 class="section-title">Common JV questions.</h2>
+        </div>
+        <div class="faq__list">
+          <details class="faq__item">
+            <summary>What's the difference between buying land and a joint venture?</summary>
+            <div class="faq__body">
+              <p>A direct purchase gives you full ownership and control — you pay upfront and own the asset outright. A joint venture pools your capital with Namou's vetted partners to share in development returns without managing construction yourself. JVs allow smaller entry points and expert execution.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>What ROI can I realistically expect from a JV?</summary>
+            <div class="faq__body">
+              <p>Returns vary by structure. Build-to-sell JVs typically target 20–30% margins over 24–36 months. Build-to-lease structures yield 7–10% operating returns plus exit appreciation. Hospitality JVs combine operator revenues with long-term asset appreciation. All projections are modelled live on your video call.</p>
+              <p class="faq__source">Reference: <a href="https://www.knightfrank.com/wealthreport" target="_blank" rel="noopener">Knight Frank — UAE Development Returns</a></p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>How is the Wynn Resort affecting JV opportunities in Al Marjan?</summary>
+            <div class="faq__body">
+              <p>Wynn Al Marjan — the first Wynn outside the US and the region's first integrated resort — has accelerated demand for hospitality-zoned plots nearby. JV opportunities in hotel development, serviced residences, and mixed-use projects around the resort are attracting significant international capital.</p>
+              <p class="faq__source">Reference: <a href="https://www.arabianbusiness.com/industries/real-estate" target="_blank" rel="noopener">Arabian Business — Wynn RAK Coverage</a></p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>Can a JV investment qualify me for a UAE Golden Visa?</summary>
+            <div class="faq__body">
+              <p>Yes, if your share of the investment meets the AED 2 million threshold in UAE real estate and is structured in your name. Our specialists walk through visa eligibility during onboarding to ensure your JV structure meets the requirements.</p>
+              <p class="faq__source">Reference: <a href="https://u.ae/en/information-and-services/visa-and-emirates-id/residence-visas/golden-visa" target="_blank" rel="noopener">UAE Government — Golden Visa</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"What's the difference between buying land and a joint venture?","acceptedAnswer":{"@type":"Answer","text":"A direct purchase gives you full ownership and control. A joint venture pools your capital with Namou's vetted partners to share in development returns without managing construction yourself. JVs allow smaller entry points and expert execution."}},
+        {"@type":"Question","name":"What ROI can I realistically expect from a JV?","acceptedAnswer":{"@type":"Answer","text":"Build-to-sell JVs typically target 20-30% margins over 24-36 months. Build-to-lease structures yield 7-10% operating returns plus exit appreciation. Hospitality JVs combine operator revenues with long-term asset appreciation."}},
+        {"@type":"Question","name":"How is the Wynn Resort affecting JV opportunities in Al Marjan?","acceptedAnswer":{"@type":"Answer","text":"Wynn Al Marjan has accelerated demand for hospitality-zoned plots nearby. JV opportunities in hotel development, serviced residences, and mixed-use projects around the resort are attracting significant international capital."}},
+        {"@type":"Question","name":"Can a JV investment qualify me for a UAE Golden Visa?","acceptedAnswer":{"@type":"Answer","text":"Yes, if your share of the investment meets the AED 2 million threshold in UAE real estate and is structured in your name."}}
+      ]
+    }
+    </script>
+  </main>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/971569636360?text=Hi%2C%20I%27m%20interested%20in%20exploring%20joint-venture%20investment%20opportunities%20in%20RAK." target="_blank" rel="noopener" class="wa-float" data-analytics="whatsapp-float" data-section="floating">
+    <span class="wa-float__badge">Replies in under 2 min</span>
+    <span class="wa-float__icon">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </span>
+  </a>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

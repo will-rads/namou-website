@@ -1,0 +1,11 @@
+# Reference materials (large PDFs, old site files)
+context/
+
+# Node / Playwright (local tooling only)
+node_modules/
+package.json
+package-lock.json
+
+# Local reference snapshots
+live-html/
+edge-dom.txt

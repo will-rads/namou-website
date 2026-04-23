@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Your Land — Namou Properties</title>
+  <meta name="description" content="List your land with Namou Properties. Exclusive representation, AI-qualified buyers, weekly reports, and full support until transfer.">
+  <link rel="icon" href="../assets/images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    :root {
+      --color-bg: #f7fbf8;
+      --color-bg-alt: #e8f4ee;
+      --color-heading: #003d2e;
+      --color-text: #314158;
+      --color-text-light: #5a8b7a;
+      --color-border: rgba(0, 61, 46, 0.1);
+      --color-green: #00b073;
+      --color-green-hover: #00c980;
+      --color-green-subtle: rgba(0, 176, 115, 0.1);
+      --color-nav-bg: rgba(247, 251, 248, 0.85);
+      --color-nav-bg-scroll: rgba(247, 251, 248, 0.95);
+    }
+    [data-theme="dark"] {
+      --color-bg: #0a1a14;
+      --color-bg-alt: #0f231b;
+      --color-heading: #e8f4ee;
+      --color-text: #7aab9a;
+      --color-text-light: #5a8b7a;
+      --color-border: rgba(135, 198, 174, 0.12);
+      --color-green: #00b073;
+      --color-green-hover: #00c980;
+      --color-green-subtle: rgba(0, 176, 115, 0.16);
+      --color-nav-bg: rgba(10, 26, 20, 0.85);
+      --color-nav-bg-scroll: rgba(10, 26, 20, 0.95);
+    }
+
+    .lo { padding: calc(var(--nav-height) + 40px) 20px 80px; }
+    .lo-wrap { max-width: 760px; margin: 0 auto; }
+    @media (min-width: 1200px) {
+      .lo { padding-left: 5vw; padding-right: 5vw; }
+      .lo-wrap { max-width: 100%; }
+      .lo-hero h1 { font-size: clamp(36px, 3.5vw, 56px); }
+      .lo-stats { gap: 20px; }
+      .lo-stat { padding: 28px 20px; }
+      .lo-step { margin-bottom: 48px; }
+      .lo-step h3 { font-size: 22px; }
+      .lo-tree { max-width: 800px; }
+      .lo-duo { gap: 28px; }
+      .lo-compare { font-size: 14px; }
+      .lo-cta { max-width: 800px; margin: 0 auto; }
+    }
+
+    /* Hero */
+    .lo-hero { text-align: center; margin-bottom: 48px; }
+    .lo-hero__label {
+      display: inline-block; padding: 6px 14px; border-radius: 999px;
+      background: var(--color-green-subtle); color: var(--color-green);
+      font-family: var(--font-heading); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .lo-hero h1 {
+      font-family: var(--font-heading); font-size: clamp(26px, 7vw, 42px);
+      font-weight: 700; color: var(--color-heading); line-height: 1.1; margin-bottom: 12px;
+    }
+    .lo-hero p {
+      font-family: var(--font-body); font-size: 14px; color: var(--color-text);
+      line-height: 1.6; max-width: 48ch; margin: 0 auto;
+    }
+
+    /* Section titles */
+    .lo-section { margin-bottom: 48px; }
+    .lo-section h2 {
+      font-family: var(--font-heading); font-size: 20px; font-weight: 700;
+      color: var(--color-heading); margin-bottom: 16px; text-align: center;
+    }
+
+    /* Comparison table */
+    .lo-compare { width: 100%; border-collapse: separate; border-spacing: 0; margin-bottom: 12px; }
+    .lo-compare th, .lo-compare td {
+      padding: 12px 14px; font-family: var(--font-body); font-size: 12px;
+      line-height: 1.5; text-align: left; vertical-align: top;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .lo-compare th {
+      font-family: var(--font-heading); font-size: 12px; font-weight: 700;
+      color: var(--color-heading); width: 25%; white-space: nowrap;
+    }
+    .lo-compare thead th {
+      font-size: 13px; padding-bottom: 8px;
+      border-bottom: 2px solid var(--color-green);
+    }
+    .lo-compare thead th:first-child { color: transparent; }
+    .lo-compare .col-non { color: var(--color-text-light); }
+    .lo-compare .col-exc { color: var(--color-heading); font-weight: 600; }
+    .lo-compare tr:last-child td, .lo-compare tr:last-child th { border-bottom: none; }
+    .lo-note {
+      font-family: var(--font-body); font-size: 12px; font-style: italic;
+      color: var(--color-text-light); line-height: 1.6; text-align: center;
+      text-wrap: balance;
+    }
+
+    /* Stats row */
+    .lo-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      margin-bottom: 8px;
+    }
+    .lo-stat {
+      text-align: center; padding: 16px 8px; border-radius: 14px;
+      border: 1px solid var(--color-border);
+    }
+    [data-theme="dark"] .lo-stat { border-color: rgba(135, 198, 174, 0.08); }
+    .lo-stat__num {
+      font-family: var(--font-heading); font-size: clamp(20px, 5vw, 28px);
+      font-weight: 700; color: var(--color-green); line-height: 1.1;
+    }
+    .lo-stat__label {
+      font-family: var(--font-body); font-size: 11px; color: var(--color-text-light);
+      line-height: 1.3; margin-top: 4px;
+    }
+
+    /* How it works — tree */
+    .lo-tree { position: relative; padding-left: 36px; }
+    .lo-tree::before {
+      content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--color-green), var(--color-green-subtle));
+      border-radius: 2px;
+    }
+    .lo-step { position: relative; padding-bottom: 36px; }
+    .lo-step:last-child { padding-bottom: 0; }
+    .lo-step__dot {
+      position: absolute; left: -36px; top: 0; width: 32px; height: 32px;
+      border-radius: 50%; background: var(--color-green); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-heading); font-size: 14px; font-weight: 700; z-index: 1;
+    }
+    .lo-step h3 {
+      font-family: var(--font-heading); font-size: 17px; font-weight: 700;
+      color: var(--color-heading); margin-bottom: 4px;
+    }
+    .lo-step > p {
+      font-family: var(--font-body); font-size: 13px; color: var(--color-text);
+      line-height: 1.5; margin-bottom: 10px;
+    }
+    .lo-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lo-tag {
+      display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px;
+      border-radius: 999px; background: rgba(0, 61, 46, 0.04);
+      font-family: var(--font-heading); font-size: 11px; font-weight: 600; color: var(--color-heading);
+    }
+    [data-theme="dark"] .lo-tag { background: rgba(135, 198, 174, 0.06); }
+    .lo-tag .material-symbols-outlined { font-size: 14px; color: var(--color-green); }
+
+    /* Bot + report side-by-side */
+    .lo-duo {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px;
+    }
+    .lo-duo-card {
+      padding: 20px; border-radius: 16px; border: 1px solid var(--color-border);
+    }
+    [data-theme="dark"] .lo-duo-card { border-color: rgba(135, 198, 174, 0.08); }
+    .lo-duo-card h3 {
+      font-family: var(--font-heading); font-size: 15px; font-weight: 700;
+      color: var(--color-heading); margin-bottom: 6px;
+    }
+    .lo-duo-card p {
+      font-family: var(--font-body); font-size: 12px; color: var(--color-text); line-height: 1.5;
+    }
+    .lo-duo-stats {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+    }
+    .lo-duo-stat {
+      flex: 1 1 45%; text-align: center; padding: 10px 6px; border-radius: 10px;
+      background: rgba(0, 61, 46, 0.04);
+    }
+    [data-theme="dark"] .lo-duo-stat { background: rgba(135, 198, 174, 0.06); }
+    .lo-duo-stat strong {
+      display: block; font-family: var(--font-heading); font-size: 18px;
+      font-weight: 700; color: var(--color-green);
+    }
+    .lo-duo-stat span {
+      font-family: var(--font-body); font-size: 10px; color: var(--color-text-light);
+    }
+
+    /* Leadership */
+    .lo-leader {
+      display: flex; gap: 16px; align-items: center;
+      padding: 20px; border-radius: 16px; border: 1px solid var(--color-border);
+      margin-bottom: 8px;
+    }
+    [data-theme="dark"] .lo-leader { border-color: rgba(135, 198, 174, 0.08); }
+    .lo-leader__info h3 {
+      font-family: var(--font-heading); font-size: 16px; font-weight: 700; color: var(--color-heading);
+    }
+    .lo-leader__info .lo-leader__role {
+      font-family: var(--font-body); font-size: 12px; color: var(--color-green); margin-bottom: 6px;
+    }
+    .lo-leader__info p {
+      font-family: var(--font-body); font-size: 12px; color: var(--color-text); line-height: 1.5;
+    }
+
+    /* CTA */
+    .lo-cta {
+      text-align: center; padding: 40px 20px; border-radius: 24px;
+      border: 1px solid var(--color-border); background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    }
+    [data-theme="dark"] .lo-cta {
+      background: rgba(135, 198, 174, 0.04); border-color: rgba(135, 198, 174, 0.08);
+    }
+    .lo-cta h2 {
+      font-family: var(--font-heading); font-size: 22px; font-weight: 700;
+      color: var(--color-heading); margin-bottom: 8px;
+    }
+    .lo-cta p {
+      font-family: var(--font-body); font-size: 13px; color: var(--color-text); margin-bottom: 20px;
+      text-wrap: balance;
+    }
+    .lo-cta .btn { border-radius: 12px; font-size: 16px; padding: 14px 28px; }
+
+    /* Address */
+    .lo-address {
+      text-align: center; margin-top: 32px;
+      font-family: var(--font-body); font-size: 12px; color: var(--color-text-light);
+    }
+
+    @media (max-width: 600px) {
+      .lo-stats { grid-template-columns: repeat(2, 1fr); }
+      .lo-duo { grid-template-columns: 1fr; }
+      .lo-compare th, .lo-compare td { padding: 10px 8px; font-size: 11px; }
+      .lo-compare th { width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="/" class="nav__logo">
+        <img src="../assets/images/logo.png" alt="Namou Properties" width="120" height="44" class="logo-light">
+        <img src="../assets/images/logo-dark.png" alt="Namou Properties" width="120" height="44" class="logo-dark">
+      </a>
+
+      <div class="nav__menu" id="navMenu">
+        <a href="/featured-property" class="nav__link">Buy</a>
+        <a href="/landowner" class="nav__link">Sell</a>
+        <a href="/broker" class="nav__link">Brokers</a>
+      </div>
+
+      <div class="nav__right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="material-symbols-outlined icon-moon">dark_mode</span>
+          <span class="material-symbols-outlined icon-sun">light_mode</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="lo">
+    <div class="lo-wrap">
+
+      <!-- Hero -->
+      <div class="lo-hero">
+        <span class="lo-hero__label">For landowners</span>
+        <h1>List your land with Namou</h1>
+        <p>Full accountability from listing to transfer.</p>
+      </div>
+
+      <!-- Listing comparison -->
+      <div class="lo-section">
+        <h2>Two ways to list</h2>
+        <table class="lo-compare">
+          <thead>
+            <tr><th></th><th>Non-exclusive</th><th>Exclusive</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Market exposure</th><td class="col-non">Multiple brokers. Mixed pricing.</td><td class="col-exc">One coordinated campaign. One strategy.</td></tr>
+            <tr><th>Buyer qualification</th><td class="col-non">Leads passed without vetting.</td><td class="col-exc">Every buyer pre-qualified (AI + team).</td></tr>
+            <tr><th>Pricing discipline</th><td class="col-non">Brokers compete. Price drops.</td><td class="col-exc">Controlled negotiation. Value protected.</td></tr>
+            <tr><th>Presentation</th><td class="col-non">Depends on each broker.</td><td class="col-exc">Drone, data sheets, feasibility.</td></tr>
+            <tr><th>Marketing</th><td class="col-non">Limited or shared budget.</td><td class="col-exc">Dedicated media spend across platforms.</td></tr>
+            <tr><th>Visibility</th><td class="col-non">Irregular updates.</td><td class="col-exc">Weekly written performance report.</td></tr>
+            <tr><th>Post-sale</th><td class="col-non">Usually ends at introduction.</td><td class="col-exc">Full support until transfer.</td></tr>
+            <tr><th>Accountability</th><td class="col-non">No single responsible party.</td><td class="col-exc">One team. One mandate. Direct oversight.</td></tr>
+          </tbody>
+        </table>
+        <p class="lo-note">Exclusivity ensures full commitment, proper resourcing, and direct accountability.</p>
+      </div>
+
+      <!-- Track record -->
+      <div class="lo-section">
+        <h2>Proven track record</h2>
+        <div class="lo-stats">
+          <div class="lo-stat"><div class="lo-stat__num">1,000+</div><div class="lo-stat__label">Residential developers</div></div>
+          <div class="lo-stat"><div class="lo-stat__num">500+</div><div class="lo-stat__label">Hospitality / hotel families</div></div>
+          <div class="lo-stat"><div class="lo-stat__num">25,000+</div><div class="lo-stat__label">Broker network</div></div>
+          <div class="lo-stat"><div class="lo-stat__num">~100K</div><div class="lo-stat__label">Sq ft transacted</div></div>
+        </div>
+        <div class="lo-stats">
+          <div class="lo-stat"><div class="lo-stat__num">25+</div><div class="lo-stat__label">Land deals closed</div></div>
+          <div class="lo-stat"><div class="lo-stat__num">~30M</div><div class="lo-stat__label">Avg deal size (AED)</div></div>
+          <div class="lo-stat"><div class="lo-stat__num">12%</div><div class="lo-stat__label">Repeat investor clients</div></div>
+          <div class="lo-stat"><div class="lo-stat__num">5–10d</div><div class="lo-stat__label">Avg transaction timeline</div></div>
+        </div>
+      </div>
+
+      <!-- How it works -->
+      <div class="lo-section">
+        <h2>How it works</h2>
+        <div class="lo-tree">
+          <div class="lo-step">
+            <div class="lo-step__dot">1</div>
+            <h3>You reach out</h3>
+            <p>Share your plot details — location, size, and asking price.</p>
+            <div class="lo-tags">
+              <span class="lo-tag"><span class="material-symbols-outlined">chat</span>WhatsApp</span>
+              <span class="lo-tag"><span class="material-symbols-outlined">bolt</span>&lt; 2 min response</span>
+            </div>
+          </div>
+          <div class="lo-step">
+            <div class="lo-step__dot">2</div>
+            <h3>We assess your plot</h3>
+            <p>Market data and buyer-profile analysis to build a go-to-market plan.</p>
+            <div class="lo-tags">
+              <span class="lo-tag"><span class="material-symbols-outlined">analytics</span>Data-backed plan</span>
+              <span class="lo-tag"><span class="material-symbols-outlined">description</span>Representation proposal</span>
+            </div>
+          </div>
+          <div class="lo-step">
+            <div class="lo-step__dot">3</div>
+            <h3>We market your land</h3>
+            <p>Dedicated media spend and targeted outreach to qualified buyers.</p>
+            <div class="lo-tags">
+              <span class="lo-tag"><span class="material-symbols-outlined">image</span>Drone + HD media</span>
+              <span class="lo-tag"><span class="material-symbols-outlined">campaign</span>Multi-platform ads</span>
+              <span class="lo-tag"><span class="material-symbols-outlined">smart_toy</span>AI buyer qualification</span>
+            </div>
+          </div>
+          <div class="lo-step">
+            <div class="lo-step__dot">4</div>
+            <h3>Weekly reports</h3>
+            <p>Every Monday — qualified leads, buyer intent, and planned next steps.</p>
+            <div class="lo-tags">
+              <span class="lo-tag"><span class="material-symbols-outlined">summarize</span>Written report</span>
+              <span class="lo-tag"><span class="material-symbols-outlined">visibility</span>Full transparency</span>
+            </div>
+          </div>
+          <div class="lo-step">
+            <div class="lo-step__dot">5</div>
+            <h3>Negotiation and close</h3>
+            <p>Controlled negotiation and full support through to completion.</p>
+            <div class="lo-tags">
+              <span class="lo-tag"><span class="material-symbols-outlined">gavel</span>Transaction support</span>
+              <span class="lo-tag"><span class="material-symbols-outlined">lock</span>Price protected</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bot + Report -->
+      <div class="lo-section">
+        <h2>Your sales engine</h2>
+        <div class="lo-duo">
+          <div class="lo-duo-card">
+            <h3>Live buyer qualification</h3>
+            <p>Every inquiry qualified in under 2 minutes, 24/7, in any language.</p>
+            <div class="lo-duo-stats">
+              <div class="lo-duo-stat"><strong>&lt; 2 min</strong><span>Avg response</span></div>
+              <div class="lo-duo-stat"><strong>24/7</strong><span>Coverage</span></div>
+              <div class="lo-duo-stat"><strong>~100</strong><span>Filtered daily</span></div>
+              <div class="lo-duo-stat"><strong>Any</strong><span>Language</span></div>
+            </div>
+          </div>
+          <div class="lo-duo-card">
+            <h3>Weekly intelligence report</h3>
+            <p>Qualified leads, buyer intent, and next actions — delivered every Monday.</p>
+            <div class="lo-duo-stats">
+              <div class="lo-duo-stat"><strong>Weekly</strong><span>Delivered</span></div>
+              <div class="lo-duo-stat"><strong>Pipeline</strong><span>Live tracker</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discretion -->
+      <div class="lo-section">
+        <h2>Discretion and confidentiality</h2>
+        <p class="lo-note" style="max-width: 56ch; margin: 0 auto;">Your land is shared only with a select network of serious investors — full privacy and controlled exposure.</p>
+      </div>
+
+      <!-- Leadership -->
+      <div class="lo-section">
+        <h2>Local leadership</h2>
+        <div class="lo-leader">
+          <div class="lo-leader__info">
+            <h3>Nadim Salameh</h3>
+            <div class="lo-leader__role">Chief Operating Officer</div>
+            <p>10+ years in high-value land transactions across RAK. Your single point of accountability.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="lo-cta">
+        <h2>Request a representation proposal</h2>
+        <p>We'll assess your plot and propose a data-backed go-to-market plan.</p>
+        <a href="https://wa.me/971507696494?text=Hi%2C%20I%27m%20a%20landowner%20and%20I%20want%20to%20discuss%20listing%20my%20land%20with%20Namou." target="_blank" rel="noopener" class="btn btn--wa">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp us
+        </a>
+        <span class="wa-response"><span class="material-symbols-outlined">bolt</span>Replies in under 2 minutes</span>
+        <p class="wa-privacy">Your details are shared only with your assigned Namou specialist.</p>
+      </div>
+
+      <div class="lo-address">411, Tower B, Julphar Towers, Al Hisn Road, Ras Al Khaimah, UAE &middot; namou.ae</div>
+
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq" style="margin-top: 40px;">
+      <div class="container">
+        <div class="faq__header">
+          <h2 class="section-title">What landowners ask us.</h2>
+        </div>
+        <div class="faq__list">
+          <details class="faq__item">
+            <summary>How long does it typically take to sell a plot in RAK?</summary>
+            <div class="faq__body">
+              <p>Timing varies by pricing, location, and readiness. With an exclusive mandate and proper positioning, serious plots in desirable zones (Al Marjan, Al Hamra, RAK Central) often transact within 3–6 months. Documentation readiness and realistic pricing are the two biggest factors.</p>
+              <p class="faq__source">Reference: <a href="https://www.propertyfinder.ae/blog/market-reports" target="_blank" rel="noopener">Property Finder — RAK Market Trends</a></p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>What taxes apply when I sell land in RAK?</summary>
+            <div class="faq__body">
+              <p>The UAE levies no capital gains tax on property sales for individuals. Corporate tax of 9% may apply to business entities with profits above AED 375,000. Transfer fees and agency commissions apply at the point of sale and are typically split per the sale agreement.</p>
+              <p class="faq__source">Reference: <a href="https://taxsummaries.pwc.com/united-arab-emirates" target="_blank" rel="noopener">PwC — UAE Tax Summary</a></p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>What fees are involved in a RAK property transaction?</summary>
+            <div class="faq__body">
+              <p>Expect approximately 4–5% in total transaction costs: RAK Municipality transfer fee (typically 2%), real estate agency commission (2%), title deed issuance, and legal/POA costs. Fees are paid at transfer and are typically split per the sale agreement.</p>
+              <p class="faq__source">Reference: <a href="https://www.bayut.com/mybayut/cost-buying-property-uae/" target="_blank" rel="noopener">Bayut — Cost of Property Transactions in the UAE</a></p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>Why is now a good time to sell RAK land?</summary>
+            <div class="faq__body">
+              <p>RAK has entered a rare alignment of rising demand, anchor projects (Wynn Al Marjan), and international investor interest. Serious buyers — developers, family offices, and hotel operators — are actively sourcing plots, creating strong leverage for well-positioned sellers.</p>
+              <p class="faq__source">Reference: <a href="https://www.knightfrank.com/wealthreport" target="_blank" rel="noopener">Knight Frank — UAE Market Outlook</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How long does it typically take to sell a plot in RAK?","acceptedAnswer":{"@type":"Answer","text":"Timing varies by pricing, location, and readiness. With an exclusive mandate and proper positioning, serious plots in desirable zones often transact within 3-6 months."}},
+        {"@type":"Question","name":"What taxes apply when I sell land in RAK?","acceptedAnswer":{"@type":"Answer","text":"The UAE levies no capital gains tax on property sales for individuals. Corporate tax of 9% may apply to business entities with profits above AED 375,000."}},
+        {"@type":"Question","name":"What fees are involved in a RAK property transaction?","acceptedAnswer":{"@type":"Answer","text":"Expect approximately 4-5% in total transaction costs: RAK Municipality transfer fee (typically 2%), agency commission (2%), title deed issuance, and legal/POA costs."}},
+        {"@type":"Question","name":"Why is now a good time to sell RAK land?","acceptedAnswer":{"@type":"Answer","text":"RAK has entered a rare alignment of rising demand, anchor projects like Wynn Al Marjan, and international investor interest. Serious buyers are actively sourcing plots."}}
+      ]
+    }
+    </script>
+  </main>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/971507696494?text=Hi%2C%20I%27m%20a%20landowner%20in%20RAK%20and%20I%27d%20like%20to%20discuss%20listing%20my%20property." target="_blank" rel="noopener" class="wa-float" data-analytics="whatsapp-float" data-section="floating">
+    <span class="wa-float__badge">Replies in under 2 min</span>
+    <span class="wa-float__icon">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </span>
+  </a>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Featured Properties — Namou Properties</title>
+  <meta name="description" content="Browse verified land listings across Ras Al Khaimah. Filter by area, size, and budget.">
+  <link rel="icon" href="../assets/images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    :root {
+      --color-bg: #f7fbf8;
+      --color-bg-alt: #e8f4ee;
+      --color-heading: #003d2e;
+      --color-text: #314158;
+      --color-text-light: #5a8b7a;
+      --color-border: rgba(0, 61, 46, 0.1);
+      --color-green: #00b073;
+      --color-green-hover: #00c980;
+      --color-green-subtle: rgba(0, 176, 115, 0.1);
+      --color-nav-bg: rgba(247, 251, 248, 0.85);
+      --color-nav-bg-scroll: rgba(247, 251, 248, 0.95);
+    }
+    [data-theme="dark"] {
+      --color-bg: #0a1a14;
+      --color-bg-alt: #0f231b;
+      --color-heading: #e8f4ee;
+      --color-text: #7aab9a;
+      --color-text-light: #5a8b7a;
+      --color-border: rgba(135, 198, 174, 0.12);
+      --color-green: #00b073;
+      --color-green-hover: #00c980;
+      --color-green-subtle: rgba(0, 176, 115, 0.16);
+      --color-nav-bg: rgba(10, 26, 20, 0.85);
+      --color-nav-bg-scroll: rgba(10, 26, 20, 0.95);
+    }
+
+    /* Page layout */
+    .fp-page {
+      min-height: 100vh;
+      padding: calc(var(--nav-height) + 40px) 24px 80px;
+    }
+    .fp-container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+    @media (min-width: 1200px) {
+      .fp-page { padding-left: 5vw; padding-right: 5vw; }
+      .fp-container { max-width: 100%; }
+      .fp-header h1 { font-size: clamp(36px, 3.5vw, 52px); }
+      .fp-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+    }
+
+    /* Header */
+    .fp-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .fp-header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      color: var(--color-heading);
+      margin-bottom: 8px;
+    }
+    .fp-header p {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--color-text);
+    }
+
+    /* Filters — unified pill bar */
+    .fp-filters {
+      display: flex;
+      align-items: stretch;
+      flex-wrap: wrap;
+      gap: 0;
+      justify-content: center;
+      margin: 0 auto 32px;
+      max-width: 1000px;
+      padding: 8px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: var(--color-bg);
+      box-shadow: 0 2px 12px rgba(0, 61, 46, 0.04);
+    }
+    [data-theme="dark"] .fp-filters {
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    }
+    .fp-filter {
+      position: relative;
+      flex: 1 1 0;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-right: 1px solid var(--color-border);
+    }
+    .fp-filter:last-child {
+      border-right: none;
+    }
+    .fp-filter__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-light);
+      flex-shrink: 0;
+    }
+    .fp-filter__icon .material-symbols-outlined {
+      font-size: 20px;
+    }
+    .fp-filter__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+    .fp-filter__label {
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-heading);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+    .fp-filter select {
+      appearance: none;
+      -webkit-appearance: none;
+      padding: 0 18px 0 0;
+      border: none;
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--color-text-light);
+      cursor: pointer;
+      transition: color 0.2s ease;
+      width: 100%;
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+    .fp-filter select:focus {
+      outline: none;
+      color: var(--color-heading);
+    }
+    .fp-filter__body::after {
+      content: '';
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid var(--color-text-light);
+      pointer-events: none;
+    }
+
+    /* Responsive filter */
+    @media (max-width: 900px) {
+      .fp-filters {
+        border-radius: 24px;
+        flex-direction: column;
+        padding: 6px;
+        max-width: 420px;
+      }
+      .fp-filter {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        padding: 10px 14px;
+      }
+      .fp-filter:last-child {
+        border-bottom: none;
+      }
+    }
+    .fp-count {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--color-text-light);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    /* Card grid */
+    .fp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    /* Property card — data-only (no images) */
+    .fp-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      transition: all 0.3s ease;
+      padding: 20px;
+    }
+    .fp-card:hover {
+      box-shadow: 0 8px 30px rgba(0, 61, 46, 0.08);
+      transform: translateY(-2px);
+    }
+    [data-theme="dark"] .fp-card:hover {
+      box-shadow: 0 8px 30px rgba(135, 198, 174, 0.06);
+    }
+
+    /* Card header row */
+    .fp-card__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .fp-card__price {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-heading);
+    }
+    .fp-card__cat {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--color-green-subtle);
+      color: var(--color-green);
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Card body */
+    .fp-card__area {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-heading);
+      margin-bottom: 12px;
+    }
+    .fp-card__details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .fp-card__detail {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--color-text);
+    }
+    .fp-card__detail .material-symbols-outlined {
+      font-size: 16px;
+      color: var(--color-text-light);
+    }
+
+    /* Card CTA */
+    .fp-card__cta {
+      display: flex;
+      width: 100%;
+    }
+    .fp-card__cta {
+      margin-top: 16px;
+    }
+    .fp-card__cta .btn {
+      flex: 1;
+      justify-content: center;
+      text-align: center;
+      border-radius: 12px;
+      background: var(--color-green);
+      color: #fff;
+      border-color: var(--color-green);
+      font-size: 14px;
+      padding: 12px 20px;
+    }
+    .fp-card__cta .btn:hover {
+      background: var(--color-green-hover);
+      border-color: var(--color-green-hover);
+    }
+
+    /* Empty state */
+    .fp-empty {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--color-text-light);
+      font-family: var(--font-body);
+      font-size: 15px;
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .fp-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .fp-filters {
+        flex-direction: column;
+        align-items: center;
+      }
+      .fp-filter select {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="/" class="nav__logo">
+        <img src="../assets/images/logo.png" alt="Namou Properties" width="120" height="44" class="logo-light">
+        <img src="../assets/images/logo-dark.png" alt="Namou Properties" width="120" height="44" class="logo-dark">
+      </a>
+
+      <div class="nav__menu" id="navMenu">
+        <a href="/featured-property" class="nav__link">Buy</a>
+        <a href="/landowner" class="nav__link">Sell</a>
+        <a href="/broker" class="nav__link">Brokers</a>
+      </div>
+
+      <div class="nav__right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="material-symbols-outlined icon-moon">dark_mode</span>
+          <span class="material-symbols-outlined icon-sun">light_mode</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="fp-page">
+    <div class="fp-container">
+
+      <div class="fp-header">
+        <h1>Featured Properties</h1>
+        <p>Verified land listings across Ras Al Khaimah</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="fp-filters">
+        <div class="fp-filter">
+          <span class="fp-filter__icon"><span class="material-symbols-outlined">straighten</span></span>
+          <div class="fp-filter__body">
+            <span class="fp-filter__label">Min SQ FT</span>
+            <select id="filterMinSqft">
+              <option value="">Any</option>
+              <option value="5000">5,000+</option>
+              <option value="10000">10,000+</option>
+              <option value="25000">25,000+</option>
+              <option value="50000">50,000+</option>
+              <option value="100000">100,000+</option>
+              <option value="250000">250,000+</option>
+              <option value="500000">500,000+</option>
+            </select>
+          </div>
+        </div>
+        <div class="fp-filter">
+          <span class="fp-filter__icon"><span class="material-symbols-outlined">straighten</span></span>
+          <div class="fp-filter__body">
+            <span class="fp-filter__label">Max SQ FT</span>
+            <select id="filterMaxSqft">
+              <option value="">Any</option>
+              <option value="10000">Up to 10,000</option>
+              <option value="25000">Up to 25,000</option>
+              <option value="50000">Up to 50,000</option>
+              <option value="100000">Up to 100,000</option>
+              <option value="250000">Up to 250,000</option>
+              <option value="500000">Up to 500,000</option>
+              <option value="9999999">1M+</option>
+            </select>
+          </div>
+        </div>
+        <div class="fp-filter">
+          <span class="fp-filter__icon"><span class="material-symbols-outlined">category</span></span>
+          <div class="fp-filter__body">
+            <span class="fp-filter__label">Type</span>
+            <select id="filterType">
+              <option value="">All Types</option>
+            </select>
+          </div>
+        </div>
+        <div class="fp-filter">
+          <span class="fp-filter__icon"><span class="material-symbols-outlined">location_on</span></span>
+          <div class="fp-filter__body">
+            <span class="fp-filter__label">Area</span>
+            <select id="filterArea">
+              <option value="">All Areas</option>
+            </select>
+          </div>
+        </div>
+        <div class="fp-filter">
+          <span class="fp-filter__icon"><span class="material-symbols-outlined">payments</span></span>
+          <div class="fp-filter__body">
+            <span class="fp-filter__label">Budget Range</span>
+            <select id="filterBudget">
+              <option value="">All Prices</option>
+              <option value="0-5000000">AED 0–5M</option>
+              <option value="5000000-15000000">AED 5–15M</option>
+              <option value="15000000-25000000">AED 15–25M</option>
+              <option value="25000000-50000000">AED 25–50M</option>
+              <option value="50000000-100000000">AED 50–100M</option>
+              <option value="100000000-99999999999">AED 100M+</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="fp-count" id="fpCount"></div>
+
+      <!-- Card grid -->
+      <div class="fp-grid" id="fpGrid"></div>
+
+      <div class="fp-empty" id="fpEmpty">No properties match your filters. Try adjusting your criteria.</div>
+
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq" style="margin-top: 60px;">
+      <div class="container">
+        <div class="faq__header">
+          <h2 class="section-title">Before you reach out.</h2>
+        </div>
+        <div class="faq__list">
+          <details class="faq__item">
+            <summary>Can foreigners buy freehold land in Ras Al Khaimah?</summary>
+            <div class="faq__body">
+              <p>Yes. Since 2005, RAK has designated several freehold zones — including Al Marjan Island, Al Hamra, and Mina Al Arab — where foreign nationals can acquire 100% ownership of land and property. No local sponsor or UAE residency is required.</p>
+              <p class="faq__source">Reference: <a href="https://www.khaleejtimes.com/business/property" target="_blank" rel="noopener">Khaleej Times — UAE Property Coverage</a></p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>Can I buy RAK land remotely without visiting the UAE?</summary>
+            <div class="faq__body">
+              <p>Yes. Foreign buyers can complete a full RAK land transaction remotely with a signed Power of Attorney to a licensed UAE representative. Due diligence, contract signing, escrow, and title transfer can all be arranged digitally — a visit to the UAE is optional, not required.</p>
+              <p class="faq__source">Reference: <a href="https://www.khaleejtimes.com/business/property" target="_blank" rel="noopener">Khaleej Times — Remote Property Purchase UAE</a></p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>What ROI can I realistically expect from RAK land?</summary>
+            <div class="faq__body">
+              <p>Returns vary by strategy. Land appreciation in prime freehold zones has tracked strong double-digit growth since 2022. Development plays (build-to-sell) typically target 20–30% margins, while hospitality joint-ventures yield operating returns plus exit appreciation. Projections always depend on deal structure and timing.</p>
+              <p class="faq__source">Reference: <a href="https://www.bayut.com/mybayut/category/market-reports/" target="_blank" rel="noopener">Bayut — RAK Property Market Reports</a></p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>What fees are involved in a RAK property transaction?</summary>
+            <div class="faq__body">
+              <p>Expect approximately 4–5% in total transaction costs: RAK Municipality transfer fee (typically 2%), real estate agency commission (2%), title deed issuance, and legal/POA costs. Fees are paid at transfer and are typically split per the sale agreement.</p>
+              <p class="faq__source">Reference: <a href="https://www.bayut.com/mybayut/cost-buying-property-uae/" target="_blank" rel="noopener">Bayut — Cost of Buying Property in the UAE</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Can foreigners buy freehold land in Ras Al Khaimah?","acceptedAnswer":{"@type":"Answer","text":"Yes. Since 2005, RAK has designated several freehold zones where foreign nationals can acquire 100% ownership of land and property. No local sponsor or UAE residency is required."}},
+        {"@type":"Question","name":"Can I buy RAK land remotely without visiting the UAE?","acceptedAnswer":{"@type":"Answer","text":"Yes. Foreign buyers can complete a full RAK land transaction remotely with a signed Power of Attorney to a licensed UAE representative. Due diligence, contract signing, escrow, and title transfer can all be arranged digitally."}},
+        {"@type":"Question","name":"What ROI can I realistically expect from RAK land?","acceptedAnswer":{"@type":"Answer","text":"Returns vary by strategy. Land appreciation in prime freehold zones has tracked strong double-digit growth since 2022. Development plays target 20-30% margins, while hospitality joint-ventures yield operating returns plus exit appreciation."}},
+        {"@type":"Question","name":"What fees are involved in a RAK property transaction?","acceptedAnswer":{"@type":"Answer","text":"Expect approximately 4-5% in total transaction costs: RAK Municipality transfer fee (typically 2%), agency commission (2%), title deed issuance, and legal/POA costs."}}
+      ]
+    }
+    </script>
+  </main>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/971569636360?text=Hi%2C%20I%27m%20browsing%20your%20featured%20properties%20and%20would%20like%20to%20know%20more." target="_blank" rel="noopener" class="wa-float" data-analytics="whatsapp-float" data-section="floating">
+    <span class="wa-float__badge">Replies in under 2 min</span>
+    <span class="wa-float__icon">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </span>
+  </a>
+
+  <script src="../js/main.js"></script>
+  <script>
+  (function() {
+    'use strict';
+
+    var SHEET_URL = 'https://docs.google.com/spreadsheets/d/1WVmxXfRnJijv1R1iHTdpPKcwpG-vUC3z/gviz/tq?tqx=out:csv&gid=2114072871';
+
+    // Area images — Unsplash (guaranteed hotlink-safe, no CORS/referer issues)
+    // Al Maireed: kept as-is per request
+    var areaImages = {
+      'Al Maireed':          'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop',
+      'Al Marjan':           'https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=600&h=400&fit=crop',
+      'Al shaghi':           'https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?w=600&h=400&fit=crop',
+      'Dafan Khuzam':        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop',
+      'RAK Central':         'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=600&h=400&fit=crop',
+      'RAK':                 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=600&h=400&fit=crop',
+      'Al Nakheel':          'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop',
+      'Corniche Al Qawasim': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop',
+      'Al Hubaidah':         'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop',
+      'Seeh Al Bana':        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop',
+      'Al Fahleen':          'https://images.unsplash.com/photo-1546412414-e1885e51e0a5?w=600&h=400&fit=crop',
+      'Dafan Al Maireed':    'https://images.unsplash.com/photo-1559564484-e48b3e040ff4?w=600&h=400&fit=crop'
+    };
+    var defaultImg = 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=600&h=400&fit=crop';
+
+    // CSV parser
+    function parseCSVLine(line) {
+      var fields = [], field = '', inQuote = false;
+      for (var i = 0; i < line.length; i++) {
+        var c = line[i];
+        if (inQuote) {
+          if (c === '"') {
+            if (i + 1 < line.length && line[i + 1] === '"') { field += '"'; i++; }
+            else inQuote = false;
+          } else field += c;
+        } else {
+          if (c === '"') inQuote = true;
+          else if (c === ',') { fields.push(field.trim()); field = ''; }
+          else field += c;
+        }
+      }
+      fields.push(field.trim());
+      return fields;
+    }
+
+    function parseCSV(text) {
+      var rows = [], lines = text.split('\n');
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim();
+        if (line) rows.push(parseCSVLine(line));
+      }
+      return rows;
+    }
+
+    function parseNum(str) {
+      if (!str) return NaN;
+      return parseFloat(str.replace(/[^0-9.]/g, ''));
+    }
+
+    function findCol(headers, name) {
+      for (var i = 0; i < headers.length; i++) {
+        if (headers[i].toLowerCase().indexOf(name.toLowerCase()) !== -1) return i;
+      }
+      return -1;
+    }
+
+    function isValid(val) {
+      return val && val !== '' && val.toLowerCase() !== 'n/a';
+    }
+
+    function formatPrice(val) {
+      var num = parseNum(val);
+      if (isNaN(num)) return val;
+      var str = Math.round(num).toLocaleString();
+      if (val.toLowerCase().indexOf('year') !== -1 || val.indexOf('/') !== -1) return str + ' AED/yr';
+      return str + ' AED';
+    }
+
+    function processSheet(rows) {
+      if (rows.length < 2) return [];
+      var h = rows[0];
+      var ci = {
+        name:  findCol(h, 'plot name'),
+        area:  findCol(h, 'area'),
+        sqft:  findCol(h, 'plot area'),
+        price: findCol(h, 'asking price'),
+        far:   -1,
+        cat:   findCol(h, 'category')
+      };
+      // FAR column — find exact match
+      for (var i = 0; i < h.length; i++) {
+        if (h[i].trim().toUpperCase() === 'FAR') { ci.far = i; break; }
+      }
+
+      var plots = [];
+      for (var r = 1; r < rows.length; r++) {
+        var row = rows[r];
+        var name  = ci.name  >= 0 ? row[ci.name]  : '';
+        var area  = ci.area  >= 0 ? row[ci.area]  : '';
+        var sqftR = ci.sqft  >= 0 ? row[ci.sqft]  : '';
+        var priceR= ci.price >= 0 ? row[ci.price] : '';
+        var farR  = ci.far   >= 0 ? row[ci.far]   : '';
+        var catR  = ci.cat   >= 0 ? row[ci.cat]   : '';
+
+        // Skip if ANY required field is missing or N/A
+        if (!isValid(name) || !isValid(area) || !isValid(sqftR) ||
+            !isValid(priceR) || !isValid(farR) || !isValid(catR)) continue;
+
+        var sqft = parseNum(sqftR);
+        var price = parseNum(priceR);
+        if (isNaN(sqft) || isNaN(price)) continue;
+
+        plots.push({
+          name: name,
+          area: area,
+          sqft: sqft,
+          far: farR.trim(),
+          cat: catR.charAt(0).toUpperCase() + catR.slice(1).toLowerCase(),
+          price: price,
+          priceLabel: formatPrice(priceR)
+        });
+      }
+      return plots;
+    }
+
+    // Fallback data — ordered to show diverse price range on first load
+    var FALLBACK_PLOTS = [
+      { name:"Exclusive Residential in Al Maireed", area:"Al Maireed", sqft:4844, far:"2.625", cat:"Residential", price:1800000, priceLabel:"1,800,000 AED" },
+      { name:"Mixed-Use Development in Al Nakheel", area:"Al Nakheel", sqft:19914, far:"4", cat:"Mixed-use", price:4100000, priceLabel:"4,100,000 AED" },
+      { name:"Mixed-Use in Dafan Al Maireed", area:"Dafan Al Maireed", sqft:9360, far:"3", cat:"Mixed-use", price:4200000, priceLabel:"4,200,000 AED" },
+      { name:"High-Rise Mixed-Use in Al Nakheel", area:"Al Nakheel", sqft:15370, far:"10.5", cat:"Mixed-use", price:6200000, priceLabel:"6,200,000 AED" },
+      { name:"Boutique Development in Al Maireed", area:"Al Maireed", sqft:19375, far:"2.625", cat:"Mixed-use", price:6200000, priceLabel:"6,200,000 AED" },
+      { name:"Prime Urban Plot in Al Maireed", area:"Al Maireed", sqft:20034, far:"3", cat:"Mixed-use", price:7200000, priceLabel:"7,200,000 AED" },
+      { name:"Waterfront Mixed-Use in Corniche", area:"Corniche Al Qawasim", sqft:14920, far:"4", cat:"Mixed-use", price:16000000, priceLabel:"16,000,000 AED" },
+      { name:"Iconic Mixed-Use in Al Nakheel", area:"Al Nakheel", sqft:12578, far:"18", cat:"Mixed-use", price:20000000, priceLabel:"20,000,000 AED" },
+      { name:"Prestigious Mixed-Use in Al Nakheel", area:"Al Nakheel", sqft:13695, far:"18", cat:"Mixed-use", price:25000000, priceLabel:"25,000,000 AED" },
+      { name:"Expansive Master Plot in Al Maireed", area:"Al Maireed", sqft:110100, far:"2.625", cat:"Residential", price:38500000, priceLabel:"38,500,000 AED" },
+      { name:"Strategic Tourism Development Plot", area:"Al Maireed", sqft:58198, far:"2.5", cat:"Hospitality", price:80000000, priceLabel:"80,000,000 AED" },
+      { name:"Ultra-Prime Mixed-Use Development", area:"Dafan Khuzam", sqft:169010, far:"1.75", cat:"Mixed-use", price:90000000, priceLabel:"90,000,000 AED" },
+      { name:"Prime High-Rise Investment | Near Wynn", area:"Al Marjan", sqft:124862, far:"3.59", cat:"Residential", price:223892065, priceLabel:"223,892,065 AED" },
+      { name:"High-Potential Tower | Near Wynn Resort", area:"Al Marjan", sqft:128225, far:"3.5", cat:"Residential", price:224480000, priceLabel:"224,480,000 AED" },
+      { name:"Premium High-Rise | Near Wynn Resort", area:"Al Marjan", sqft:129287, far:"3.59", cat:"Residential", price:232793930, priceLabel:"232,793,930 AED" },
+      { name:"Beachfront Residential | Near Wynn Resort", area:"Al Marjan", sqft:121551, far:"4.36", cat:"Residential", price:264981275, priceLabel:"264,981,275 AED" },
+      { name:"Prime Residential Tower", area:"Al Marjan", sqft:140849, far:"3.84", cat:"Residential", price:270268395, priceLabel:"270,268,395 AED" },
+      { name:"Strategic High-Rise | Near Wynn Resort", area:"Al Marjan", sqft:116066, far:"4.72", cat:"Residential", price:274177955, priceLabel:"274,177,955 AED" },
+      { name:"Prime Commercial Office & Retail", area:"RAK Central", sqft:134549, far:"5.75", cat:"Commercial", price:541343600, priceLabel:"541,343,600 AED" },
+      { name:"Iconic Resort & Hospitality", area:"Al Marjan", sqft:660744, far:"4.75", cat:"Hospitality", price:573718880, priceLabel:"573,718,880 AED" },
+      { name:"Luxury Hospitality Development", area:"Al Marjan", sqft:428635, far:"3.2", cat:"Hospitality", price:1392868560, priceLabel:"1,392,868,560 AED" },
+      { name:"Waterfront Hotel Convention", area:"Al Marjan", sqft:636808, far:"2.5", cat:"Hospitality", price:1592019300, priceLabel:"1,592,019,300 AED" },
+      { name:"Landmark Hotel & Convention", area:"Al Marjan", sqft:1402703, far:"2", cat:"Hospitality", price:2805405800, priceLabel:"2,805,405,800 AED" }
+    ];
+
+    // State
+    var allPlots = [];
+
+    function buildAreaFilter(plots) {
+      var areas = [], sel = document.getElementById('filterArea');
+      // Clear existing options except first
+      while (sel.options.length > 1) sel.remove(1);
+      plots.forEach(function(p) {
+        if (areas.indexOf(p.area) === -1) areas.push(p.area);
+      });
+      areas.sort();
+      areas.forEach(function(a) {
+        var opt = document.createElement('option');
+        opt.value = a; opt.textContent = a;
+        sel.appendChild(opt);
+      });
+    }
+
+    function buildTypeFilter(plots) {
+      var types = [], sel = document.getElementById('filterType');
+      while (sel.options.length > 1) sel.remove(1);
+      plots.forEach(function(p) {
+        if (p.cat && types.indexOf(p.cat) === -1) types.push(p.cat);
+      });
+      types.sort();
+      types.forEach(function(t) {
+        var opt = document.createElement('option');
+        opt.value = t; opt.textContent = t;
+        sel.appendChild(opt);
+      });
+    }
+
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function renderCards(filtered) {
+      var grid = document.getElementById('fpGrid');
+      var empty = document.getElementById('fpEmpty');
+      var count = document.getElementById('fpCount');
+
+      count.textContent = filtered.length + ' propert' + (filtered.length === 1 ? 'y' : 'ies') + ' found';
+
+      if (filtered.length === 0) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
+      empty.style.display = 'none';
+
+      var html = '';
+      filtered.forEach(function(p) {
+        var waText = encodeURIComponent('Hi, I\'m interested in: ' + p.name + ' (' + p.area + ')');
+        html += '<div class="fp-card">';
+        html += '  <div class="fp-card__header">';
+        html += '    <span class="fp-card__price">' + escapeHtml(p.priceLabel) + '</span>';
+        html += '    <span class="fp-card__cat">' + escapeHtml(p.cat) + '</span>';
+        html += '  </div>';
+        html += '  <div class="fp-card__area">' + escapeHtml(p.area) + '</div>';
+        html += '  <div class="fp-card__details">';
+        html += '    <div class="fp-card__detail"><span class="material-symbols-outlined">straighten</span>' + p.sqft.toLocaleString() + ' sqft</div>';
+        html += '    <div class="fp-card__detail"><span class="material-symbols-outlined">layers</span>FAR ' + escapeHtml(p.far) + '</div>';
+        html += '  </div>';
+        html += '  <div class="fp-card__cta">';
+        html += '    <a href="https://wa.me/971569636360?text=' + waText + '" target="_blank" rel="noopener" class="btn">';
+        html += '      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
+        html += '      Get Details';
+        html += '    </a>';
+        html += '  </div>';
+        html += '</div>';
+      });
+      grid.innerHTML = html;
+    }
+
+    function applyFilters() {
+      var minSqft = document.getElementById('filterMinSqft').value;
+      var maxSqft = document.getElementById('filterMaxSqft').value;
+      var type = document.getElementById('filterType').value;
+      var area = document.getElementById('filterArea').value;
+      var budget = document.getElementById('filterBudget').value;
+
+      var filtered = allPlots.filter(function(p) {
+        if (area && p.area !== area) return false;
+        if (type && p.cat !== type) return false;
+        if (minSqft && p.sqft < parseInt(minSqft)) return false;
+        if (maxSqft && p.sqft > parseInt(maxSqft)) return false;
+        if (budget) {
+          var bp = budget.split('-'); var bmin = parseInt(bp[0]); var bmax = parseInt(bp[1]);
+          if (p.price < bmin || p.price > bmax) return false;
+        }
+        return true;
+      });
+      renderCards(filtered);
+    }
+
+    ['filterMinSqft','filterMaxSqft','filterType','filterArea','filterBudget'].forEach(function(id) {
+      document.getElementById(id).addEventListener('change', applyFilters);
+    });
+
+    function initWithData(plots) {
+      allPlots = plots;
+      buildAreaFilter(allPlots);
+      buildTypeFilter(allPlots);
+      renderCards(allPlots);
+    }
+
+    // Try live spreadsheet fetch; fall back to embedded data
+    document.getElementById('fpCount').textContent = 'Loading properties\u2026';
+    fetch(SHEET_URL)
+      .then(function(r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
+      .then(function(csv) {
+        // Guard: if the response looks like HTML (redirect/error page), skip parsing
+        if (csv.trim().charAt(0) === '<') throw new Error('HTML response, not CSV');
+        var live = processSheet(parseCSV(csv));
+        initWithData(live.length > 0 ? live : FALLBACK_PLOTS);
+      })
+      .catch(function() {
+        initWithData(FALLBACK_PLOTS);
+      });
+  })();
+  </script>
+</body>
+</html>

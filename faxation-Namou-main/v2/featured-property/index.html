@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Featured Properties — Namou v2</title>
+  <link rel="icon" href="../../assets/images/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .fp-head { text-align: center; margin-bottom: 48px; padding-top: 120px; }
+    .fp-head h1 { font-family: "DM Sans", -apple-system, sans-serif; font-weight: 500; font-size: clamp(3rem, 6vw, 5.5rem); letter-spacing: -0.04em; line-height: 1; margin-bottom: 16px; }
+    .fp-head h1 .serif { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
+    .fp-head p { font-size: 15px; color: var(--ink-muted); }
+
+    .filters { display: flex; align-items: stretch; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 999px; padding: 8px; max-width: 1200px; margin: 0 auto 48px; }
+    .filter { flex: 1; display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-right: 1px solid var(--line); position: relative; }
+    .filter:last-child { border-right: none; }
+    .filter .material-symbols-outlined { font-size: 20px; color: var(--ink-muted); flex-shrink: 0; }
+    .filter__body { display: flex; flex-direction: column; flex: 1; min-width: 0; position: relative; }
+    .filter__label { font-family: "DM Sans", -apple-system, sans-serif; font-size: 11px; font-weight: 500; color: var(--ink); letter-spacing: 0.04em; }
+    .filter select { appearance: none; -webkit-appearance: none; background: transparent; border: none; padding: 2px 16px 0 0; font-family: "Roboto Mono", monospace; font-size: 13px; color: var(--ink-muted); cursor: pointer; width: 100%; outline: none; }
+    .filter select:focus { color: var(--ink); }
+    .filter__body::after { content: ""; position: absolute; right: 0; bottom: 12px; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid var(--ink-muted); pointer-events: none; }
+
+    .count { text-align: center; font-size: 13px; color: var(--ink-muted); margin-bottom: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .card { padding: 24px; border-radius: 20px; background: var(--bg-alt); border: 1px solid var(--line); transition: transform 0.5s var(--ease), border-color 0.4s ease; }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .card__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .card__price { font-family: "DM Sans", -apple-system, sans-serif; font-size: 1.1rem; font-weight: 500; letter-spacing: -0.01em; }
+    .card__cat { padding: 4px 10px; border-radius: 999px; background: var(--accent); color: #fff; font-family: "DM Sans", -apple-system, sans-serif; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+    .card__area { font-family: "DM Sans", -apple-system, sans-serif; font-size: 1.05rem; font-weight: 500; margin-bottom: 12px; letter-spacing: -0.01em; }
+    .card__details { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+    .card__detail { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-muted); }
+    .card__detail .material-symbols-outlined { font-size: 14px; }
+    .card__cta { display: block; text-align: center; padding: 12px; border-radius: 999px; background: var(--wa); color: #fff; font-family: "DM Sans", -apple-system, sans-serif; font-weight: 500; font-size: 13px; transition: background 0.2s ease; }
+    .card__cta:hover { background: #1ebe57; }
+    .empty { text-align: center; padding: 80px 24px; color: var(--ink-muted); font-size: 14px; display: none; }
+
+    @media (max-width: 900px) { .filters { flex-direction: column; border-radius: 24px; } .filter { border-right: none; border-bottom: 1px solid var(--line); } .filter:last-child { border-bottom: none; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/v2/" class="nav__logo">
+      <img src="../../assets/images/logo.png" alt="Namou" class="logo-light">
+      <img src="../../assets/images/logo-dark.png" alt="Namou" class="logo-dark">
+    </a>
+    <div class="nav__links">
+      <a href="/v2/featured-property/">Buy</a>
+      <a href="/v2/landowner/">Sell</a>
+      <a href="/v2/jv/">Invest</a>
+      <a href="/v2/broker/">Brokers</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav__theme" id="themeToggle" aria-label="Toggle theme">
+      <span class="material-symbols-outlined icon-moon">dark_mode</span>
+      <span class="material-symbols-outlined icon-sun">light_mode</span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/v2/featured-property/">Buy</a>
+    <a href="/v2/landowner/">Sell</a>
+    <a href="/v2/jv/">Invest</a>
+    <a href="/v2/broker/">Brokers</a>
+  </div>
+
+  <main style="padding: 0 24px 80px; max-width: 1400px; margin: 0 auto;">
+    <div class="fp-head">
+      <h1>Featured <span class="serif">properties.</span></h1>
+      <p>Verified land listings across Ras Al Khaimah.</p>
+    </div>
+
+    <div class="filters">
+      <div class="filter"><span class="material-symbols-outlined">straighten</span><div class="filter__body"><span class="filter__label">Min SQ FT</span><select id="filterMinSqft"><option value="">Any</option><option value="5000">5,000+</option><option value="10000">10,000+</option><option value="25000">25,000+</option><option value="50000">50,000+</option><option value="100000">100,000+</option><option value="250000">250,000+</option><option value="500000">500,000+</option></select></div></div>
+      <div class="filter"><span class="material-symbols-outlined">straighten</span><div class="filter__body"><span class="filter__label">Max SQ FT</span><select id="filterMaxSqft"><option value="">Any</option><option value="10000">Up to 10,000</option><option value="25000">Up to 25,000</option><option value="50000">Up to 50,000</option><option value="100000">Up to 100,000</option><option value="250000">Up to 250,000</option><option value="500000">Up to 500,000</option><option value="9999999">1M+</option></select></div></div>
+      <div class="filter"><span class="material-symbols-outlined">category</span><div class="filter__body"><span class="filter__label">Type</span><select id="filterType"><option value="">All Types</option></select></div></div>
+      <div class="filter"><span class="material-symbols-outlined">location_on</span><div class="filter__body"><span class="filter__label">Area</span><select id="filterArea"><option value="">All Areas</option></select></div></div>
+      <div class="filter"><span class="material-symbols-outlined">payments</span><div class="filter__body"><span class="filter__label">Budget Range</span><select id="filterBudget"><option value="">All Prices</option><option value="0-5000000">AED 0–5M</option><option value="5000000-15000000">AED 5–15M</option><option value="15000000-25000000">AED 15–25M</option><option value="25000000-50000000">AED 25–50M</option><option value="50000000-100000000">AED 50–100M</option><option value="100000000-99999999999">AED 100M+</option></select></div></div>
+    </div>
+
+    <div class="count" id="fpCount"></div>
+    <div class="grid" id="fpGrid"></div>
+    <div class="empty" id="fpEmpty">No properties match your filters.</div>
+  </main>
+
+  <footer class="footer" style="margin-top:80px;">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="../../assets/images/logo.png" alt="Namou" class="logo-light" style="height:32px;">
+        <img src="../../assets/images/logo-dark.png" alt="Namou" class="logo-dark" style="height:32px;">
+        <p>Land and commercial real estate in Ras Al Khaimah.</p>
+      </div>
+      <div class="footer__col"><h4>Explore</h4><a href="/v2/featured-property/">Buy</a><a href="/v2/landowner/">Sell</a><a href="/v2/jv/">Invest</a><a href="/v2/broker/">Brokers</a></div>
+      <div class="footer__col"><h4>Contact</h4><a href="https://wa.me/971569636360">WhatsApp</a><a href="mailto:reachus@namou.ae">reachus@namou.ae</a><span>+971 56 963 6360</span></div>
+      <div class="footer__col"><h4>Office</h4><span>1411, Tower B</span><span>Julphar Towers</span><span>Al Hisn Road, RAK</span></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 Namou Properties LLC.</span><a href="/featured-property/">Back to v1</a></div>
+  </footer>
+
+  <a href="https://wa.me/971569636360" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="../js/motion.js"></script>
+  <script>
+  (function() {
+    'use strict';
+    var FALLBACK_PLOTS = [
+      { name:"Exclusive Residential in Al Maireed", area:"Al Maireed", sqft:4844, far:"2.625", cat:"Residential", price:1800000, priceLabel:"1,800,000 AED" },
+      { name:"Mixed-Use Development in Al Nakheel", area:"Al Nakheel", sqft:19914, far:"4", cat:"Mixed-use", price:4100000, priceLabel:"4,100,000 AED" },
+      { name:"Mixed-Use in Dafan Al Maireed", area:"Dafan Al Maireed", sqft:9360, far:"3", cat:"Mixed-use", price:4200000, priceLabel:"4,200,000 AED" },
+      { name:"High-Rise Mixed-Use in Al Nakheel", area:"Al Nakheel", sqft:15370, far:"10.5", cat:"Mixed-use", price:6200000, priceLabel:"6,200,000 AED" },
+      { name:"Boutique Development in Al Maireed", area:"Al Maireed", sqft:19375, far:"2.625", cat:"Mixed-use", price:6200000, priceLabel:"6,200,000 AED" },
+      { name:"Prime Urban Plot in Al Maireed", area:"Al Maireed", sqft:20034, far:"3", cat:"Mixed-use", price:7200000, priceLabel:"7,200,000 AED" },
+      { name:"Waterfront Mixed-Use in Corniche", area:"Corniche Al Qawasim", sqft:14920, far:"4", cat:"Mixed-use", price:16000000, priceLabel:"16,000,000 AED" },
+      { name:"Iconic Mixed-Use in Al Nakheel", area:"Al Nakheel", sqft:12578, far:"18", cat:"Mixed-use", price:20000000, priceLabel:"20,000,000 AED" },
+      { name:"Prestigious Mixed-Use in Al Nakheel", area:"Al Nakheel", sqft:13695, far:"18", cat:"Mixed-use", price:25000000, priceLabel:"25,000,000 AED" },
+      { name:"Expansive Master Plot in Al Maireed", area:"Al Maireed", sqft:110100, far:"2.625", cat:"Residential", price:38500000, priceLabel:"38,500,000 AED" },
+      { name:"Strategic Tourism Development Plot", area:"Al Maireed", sqft:58198, far:"2.5", cat:"Hospitality", price:80000000, priceLabel:"80,000,000 AED" },
+      { name:"Ultra-Prime Mixed-Use Development", area:"Dafan Khuzam", sqft:169010, far:"1.75", cat:"Mixed-use", price:90000000, priceLabel:"90,000,000 AED" },
+      { name:"Prime Commercial Office & Retail", area:"RAK Central", sqft:134549, far:"5.75", cat:"Commercial", price:541343600, priceLabel:"541,343,600 AED" },
+      { name:"Luxury Hospitality Development", area:"Al Marjan", sqft:428635, far:"3.2", cat:"Hospitality", price:1392868560, priceLabel:"1,392,868,560 AED" }
+    ];
+    var allPlots = FALLBACK_PLOTS;
+    function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+    function buildOptions(sel, values) { while (sel.options.length > 1) sel.remove(1); values.sort().forEach(function(v) { var o = document.createElement('option'); o.value = v; o.textContent = v; sel.appendChild(o); }); }
+    function initFilters(plots) {
+      var areas = [], types = [];
+      plots.forEach(function(p) { if (areas.indexOf(p.area) === -1) areas.push(p.area); if (types.indexOf(p.cat) === -1) types.push(p.cat); });
+      buildOptions(document.getElementById('filterArea'), areas);
+      buildOptions(document.getElementById('filterType'), types);
+    }
+    function render(plots) {
+      var grid = document.getElementById('fpGrid'), empty = document.getElementById('fpEmpty'), count = document.getElementById('fpCount');
+      count.textContent = plots.length + ' propert' + (plots.length === 1 ? 'y' : 'ies') + ' found';
+      if (plots.length === 0) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
+      empty.style.display = 'none';
+      grid.innerHTML = plots.map(function(p) {
+        var wa = encodeURIComponent('Hi, I\'m interested in: ' + p.name + ' (' + p.area + ')');
+        return '<div class="card"><div class="card__top"><span class="card__price">' + esc(p.priceLabel) + '</span><span class="card__cat">' + esc(p.cat) + '</span></div><div class="card__area">' + esc(p.area) + '</div><div class="card__details"><div class="card__detail"><span class="material-symbols-outlined">straighten</span>' + p.sqft.toLocaleString() + ' sqft</div><div class="card__detail"><span class="material-symbols-outlined">layers</span>FAR ' + esc(p.far) + '</div></div><a href="https://wa.me/971569636360?text=' + wa + '" target="_blank" rel="noopener" class="card__cta">Get details</a></div>';
+      }).join('');
+    }
+    function apply() {
+      var minS = document.getElementById('filterMinSqft').value;
+      var maxS = document.getElementById('filterMaxSqft').value;
+      var t = document.getElementById('filterType').value;
+      var a = document.getElementById('filterArea').value;
+      var b = document.getElementById('filterBudget').value;
+      render(allPlots.filter(function(p) {
+        if (a && p.area !== a) return false;
+        if (t && p.cat !== t) return false;
+        if (minS && p.sqft < parseInt(minS)) return false;
+        if (maxS && p.sqft > parseInt(maxS)) return false;
+        if (b) { var bp = b.split('-'); if (p.price < parseInt(bp[0]) || p.price > parseInt(bp[1])) return false; }
+        return true;
+      }));
+    }
+    ['filterMinSqft','filterMaxSqft','filterType','filterArea','filterBudget'].forEach(function(id) { document.getElementById(id).addEventListener('change', apply); });
+    initFilters(allPlots);
+    render(allPlots);
+  })();
+  </script>
+</body>
+</html>
