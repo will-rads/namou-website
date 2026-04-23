@@ -174,7 +174,6 @@ img.logo-dark { display: none; }
    HERO — cinematic center with full-bleed backdrop
    ===================================================== */
 .hero {
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,21 +185,17 @@ img.logo-dark { display: none; }
 }
 
 .hero__plan {
-  flex: 1 1 auto;
-  min-height: 280px;
   width: 100vw;
+  aspect-ratio: 1792 / 678;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
+  margin-top: 48px;
   background-image: url("../../assets/images/hero-bg-light.png");
-  background-size: contain;
+  background-size: 100% auto;
   background-position: center center;
   background-repeat: no-repeat;
   pointer-events: none;
   z-index: 0;
-}
-
-[data-theme="dark"] .hero__plan {
-  background-image: url("../../assets/images/hero-bg-dark.png");
 }
 
 .hero__inner {
