@@ -1,0 +1,94 @@
+[
+  {
+    "slug": "al-marjan-hospitality-opportunity-3",
+    "model": "hospitality",
+    "area": "Al Marjan Island",
+    "targetIrr": "20–24%",
+    "holdYears": "4",
+    "minTicketAed": 5000000,
+    "totalRaiseAed": 60000000,
+    "raisedPct": 38,
+    "status": "Open",
+    "description": "Beachfront hospitality JV in the Wynn proximity zone. Capital pooled into an SPV that acquires the land, funds the build, and exits via asset sale at completion.",
+    "partners": [
+      {
+        "role": "Land partner",
+        "note": "Established RAK landowner contributing the parcel at appraised value"
+      },
+      {
+        "role": "Operator partner",
+        "note": "Regional hospitality operator with 6 active resort assets in the UAE"
+      },
+      {
+        "role": "Lead investor",
+        "note": "Family office anchor commitment of AED 18M (already secured)"
+      }
+    ]
+  },
+  {
+    "slug": "rak-central-sellout-opportunity-7",
+    "model": "sellout",
+    "area": "RAK Central",
+    "targetIrr": "18–22%",
+    "holdYears": "2.5",
+    "minTicketAed": 3000000,
+    "totalRaiseAed": 42000000,
+    "raisedPct": 65,
+    "status": "Open",
+    "description": "Corner commercial plot, build-and-sell mid-rise. Off-plan presales kick off at structural completion; full exit on handover.",
+    "partners": [
+      {
+        "role": "Developer partner",
+        "note": "Active RAK contractor with 9 delivered commercial buildings"
+      },
+      {
+        "role": "Marketing partner",
+        "note": "Regional brokerage with active enterprise pipeline"
+      }
+    ]
+  },
+  {
+    "slug": "al-hamra-income-opportunity-4",
+    "model": "income",
+    "area": "Al Hamra",
+    "targetIrr": "12–14%",
+    "holdYears": "7",
+    "minTicketAed": 2000000,
+    "totalRaiseAed": 28000000,
+    "raisedPct": 72,
+    "status": "Open",
+    "description": "Build-to-lease residential cluster on a serviced plot in Al Hamra. Cash-on-cash from year three; refinance opportunity at year five.",
+    "partners": [
+      {
+        "role": "Developer partner",
+        "note": "Local villa specialist with 14 completed Al Hamra villas"
+      },
+      {
+        "role": "Operating manager",
+        "note": "Property management firm handling 200+ RAK leasing units"
+      }
+    ]
+  },
+  {
+    "slug": "mina-al-arab-mixed-opportunity-2",
+    "model": "sellout",
+    "area": "Mina Al Arab",
+    "targetIrr": "16–20%",
+    "holdYears": "3",
+    "minTicketAed": 4000000,
+    "totalRaiseAed": 35000000,
+    "raisedPct": 100,
+    "status": "Funded",
+    "description": "Funded — sample structure shown for context. Mixed-use waterside development with pre-launch retail leasing in place.",
+    "partners": [
+      {
+        "role": "Developer partner",
+        "note": "RAK Properties co-developer agreement"
+      },
+      {
+        "role": "Anchor tenant",
+        "note": "Regional grocery brand pre-signed for ground-floor anchor"
+      }
+    ]
+  }
+]

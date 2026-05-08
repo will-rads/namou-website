@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" role="img" aria-label="hospitality SPV flow diagram">
+<defs>
+  <style>
+    .stroke { stroke: #003D2E; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .fill   { fill: #3FE6A8; }
+    .label  { font-family: 'DM Sans', sans-serif; font-size: 13px; fill: #003D2E; font-weight: 500; }
+    .num    { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; fill: #003D2E; letter-spacing: 0.05em; }
+    .small  { font-family: 'DM Sans', sans-serif; font-size: 11px; fill: #6FB89C; letter-spacing: 0.06em; text-transform: uppercase; }
+    .bg     { fill: #F4FAF7; }
+  </style>
+</defs>
+  <rect class="bg" width="800" height="280"/>
+  <text x="400" y="30" class="num" text-anchor="middle">HOSPITALITY SPV FLOW</text>
+  <!-- Investors -->
+  <circle cx="60" cy="100" r="14" class="stroke" fill="#F4FAF7"/>
+<circle cx="92" cy="100" r="14" class="stroke" fill="#F4FAF7"/>
+<circle cx="124" cy="100" r="14" class="stroke" fill="#F4FAF7"/>
+  <text x="92" y="135" class="small" text-anchor="middle">LP POOL</text>
+  <!-- Capital flow -->
+  <line class="stroke" x1="160" y1="100" x2="280" y2="140"/>
+  <polygon points="280,140 270,138 273,148" fill="#003D2E"/>
+  <text x="220" y="110" class="small">CAPITAL</text>
+  <!-- SPV box -->
+  <rect x="280" y="110" width="240" height="60" rx="8" class="stroke" fill="#3FE6A8" fill-opacity="0.35"/>
+  <text x="400" y="135" class="label" text-anchor="middle">DEDICATED SPV</text>
+  <text x="400" y="155" class="small" text-anchor="middle">BUILD + OPERATE</text>
+  <!-- Asset -->
+  <line class="stroke" x1="520" y1="140" x2="600" y2="100"/>
+  <polygon points="600,100 590,98 593,108" fill="#003D2E"/>
+  <rect x="600" y="80" width="120" height="44" rx="6" class="stroke" fill="#F4FAF7"/>
+  <text x="660" y="106" class="label" text-anchor="middle">RAK ASSET</text>
+  <!-- Exit/distribution -->
+  <line class="stroke" x1="660" y1="124" x2="660" y2="200"/>
+  <polygon points="660,200 656,190 664,190" fill="#003D2E"/>
+  <rect x="600" y="200" width="120" height="44" rx="6" class="stroke" fill="#F4FAF7"/>
+  <text x="660" y="224" class="label" text-anchor="middle">EXIT</text>
+  <!-- Distribution back -->
+  <path class="stroke" d="M600 222 Q 400 260, 200 200" fill="none" stroke-dasharray="3 3"/>
+  <polygon points="200,200 210,202 207,192" fill="#003D2E"/>
+  <text x="400" y="270" class="small" text-anchor="middle">DISTRIBUTION (PREF + PROMOTE)</text>
+</svg>

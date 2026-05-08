@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" role="img" aria-label="Build-sell isometric illustration">
+<defs>
+  <style>
+    .stroke { stroke: #003D2E; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .fill   { fill: #3FE6A8; }
+    .label  { font-family: 'DM Sans', sans-serif; font-size: 13px; fill: #003D2E; font-weight: 500; }
+    .num    { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; fill: #003D2E; letter-spacing: 0.05em; }
+    .small  { font-family: 'DM Sans', sans-serif; font-size: 11px; fill: #6FB89C; letter-spacing: 0.06em; text-transform: uppercase; }
+    .bg     { fill: #F4FAF7; }
+  </style>
+</defs>
+  <polygon points="80,140 130,128 180,140 130,152" class="stroke" fill="#F4FAF7"/>
+<polygon points="80,124 130,112 180,124 130,136" class="stroke" fill="#F4FAF7"/>
+<polygon points="80,108 130,96 180,108 130,120" class="stroke" fill="#F4FAF7"/>
+<polygon points="80,92 130,80 180,92 130,104" class="stroke" fill="#F4FAF7"/>
+<polygon points="80,76 130,64 180,76 130,88" class="stroke" fill="#F4FAF7"/>
+  <!-- Exit arrow -->
+  <line class="stroke" x1="200" y1="80" x2="225" y2="60"/>
+  <polygon points="225,60 220,68 218,55" fill="#003D2E"/>
+  <text x="220" y="50" class="small" text-anchor="end">EXIT</text>
+  <text x="120" y="190" class="small" text-anchor="middle">SELLOUT</text>
+</svg>

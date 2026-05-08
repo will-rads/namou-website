@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" role="img" aria-label="Capital call schedule">
+<defs>
+  <style>
+    .stroke { stroke: #003D2E; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .fill   { fill: #3FE6A8; }
+    .label  { font-family: 'DM Sans', sans-serif; font-size: 13px; fill: #003D2E; font-weight: 500; }
+    .num    { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; fill: #003D2E; letter-spacing: 0.05em; }
+    .small  { font-family: 'DM Sans', sans-serif; font-size: 11px; fill: #6FB89C; letter-spacing: 0.06em; text-transform: uppercase; }
+    .bg     { fill: #F4FAF7; }
+  </style>
+</defs>
+  <rect class="bg" width="800" height="200"/>
+  <text x="400" y="30" class="num" text-anchor="middle">CAPITAL CALL TIMELINE</text>
+  <line class="stroke" x1="80" y1="120" x2="720" y2="120"/>
+  <g transform="translate(200,0)">
+    <line class="stroke" x1="0" y1="115" x2="0" y2="125"/>
+    <rect x="-50" y="55" width="100" height="50" rx="6" class="stroke" fill="#3FE6A8" fill-opacity="0.45"/>
+    <text y="80" class="label" text-anchor="middle">Tranche 1</text>
+    <text y="98" class="num" text-anchor="middle">30%</text>
+    <text y="150" class="small" text-anchor="middle">Groundbreaking</text>
+  </g>
+  <g transform="translate(400,0)">
+    <line class="stroke" x1="0" y1="115" x2="0" y2="125"/>
+    <rect x="-50" y="55" width="100" height="50" rx="6" class="stroke" fill="#3FE6A8" fill-opacity="0.45"/>
+    <text y="80" class="label" text-anchor="middle">Tranche 2</text>
+    <text y="98" class="num" text-anchor="middle">40%</text>
+    <text y="150" class="small" text-anchor="middle">Structural completion</text>
+  </g>
+  <g transform="translate(600,0)">
+    <line class="stroke" x1="0" y1="115" x2="0" y2="125"/>
+    <rect x="-50" y="55" width="100" height="50" rx="6" class="stroke" fill="#3FE6A8" fill-opacity="0.45"/>
+    <text y="80" class="label" text-anchor="middle">Tranche 3</text>
+    <text y="98" class="num" text-anchor="middle">30%</text>
+    <text y="150" class="small" text-anchor="middle">Fit-out & handover</text>
+  </g>
+</svg>

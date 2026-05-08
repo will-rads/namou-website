@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy RAK land — verified plots, real numbers</title>
+  <meta name="description" content="Verified land plots across Ras Al Khaimah. Filter by area, use, size, budget. ROI modelled live on the call.">
+  <meta property="og:title" content="Buy RAK land — verified plots, real numbers">
+  <meta property="og:description" content="Verified land plots across Ras Al Khaimah. Filter by area, use, size, budget. ROI modelled live on the call.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://namou-main.vercel.app/buy/">
+  
+  <link rel="canonical" href="https://namou-main.vercel.app/buy/">
+  <link rel="icon" href="/assets/images/logo-dark.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=arrow_forward,arrow_outward,call,category,check_circle,close,compare_arrows,description,download,explore,handshake,hub,inventory_2,language,location_on,lock,map,monitoring,paid,public,shield,smart_display,straighten,trending_up,verified,videocam,visibility,workspaces&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/v3/css/styles.css">
+  <link rel="stylesheet" href="/v3/css/v3.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Buy RAK land — Namou Properties","url":"https://namou-main.vercel.app/buy/","description":"Verified land plots across Ras Al Khaimah. Filter by area, use, size, budget. ROI modelled live on the call.","serviceType":"Real estate buyer representation","provider":{"@type":"RealEstateAgent","name":"Namou Properties","url":"https://namou-main.vercel.app/"},"areaServed":{"@type":"Place","name":"Ras Al Khaimah"}}</script>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav__logo"><img src="/assets/images/logo-dark.png" alt="Namou" class="logo-light" width="330" height="120"></a>
+    <div class="nav__links">
+      <a href="/buy/">Buy</a>
+      <a href="/sell/">Sell</a>
+      <a href="/invest/">Invest</a>
+      <a href="/broker/">Brokers</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </nav>
+  <a href="/" class="mobile-home-pill" aria-label="Go to homepage"><img src="/assets/images/logo-dark.png" alt="Namou"></a>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="/buy/">Buy</a>
+    <a href="/sell/">Sell</a>
+    <a href="/invest/">Invest</a>
+    <a href="/broker/">Brokers</a>
+    <a href="/about/">About</a>
+  </div>
+
+  <section class="v3-hero v3-hero--full v3-hero--up">
+    <div class="v3-hero__media">
+      <picture>
+        <source media="(max-width: 768px)" srcset="/assets/images/Buy-mobile.png">
+        <img src="/assets/images/buy-hero-bg.png" alt="Aerial photograph of a Ras Al Khaimah freehold land plot" loading="eager" decoding="async" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="v3-hero__copy">
+      <h1 class="v3-h1">Verified land plots across <span class="v3-serif">Ras Al Khaimah</span>.</h1>
+      <p class="v3-lede copy-desktop">Walked plot by plot on a video call. ROI modeled live. If our inventory doesn't fit your brief, we source it from off-market parcels.</p>
+      <p class="v3-lede copy-mobile">Verified plots matched to your brief, shown live on a video call.</p>
+      <div class="v3-cta-row"><a class="btn btn--primary" href="#inventory">Browse the inventory<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn btn--primary" target="_blank" rel="noopener" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I'd%20like%20to%20book%20a%20video%20walkthrough%20of%20RAK%20freehold%20inventory.">Book a video walkthrough<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- HUB AREAS MARQUEE — parity with /v3/sell/, /v3/invest/, /v3/broker/.
+       Same .v3-hub-marquee structure as the other hub pages; content uses
+       the RAK freehold zones list (same as the home .v3-marquee-section)
+       since there's no Buy-specific location convention and the team
+       previously chose to keep buy-process info behind WhatsApp lead
+       capture (so a process-step marquee would contradict that). No
+       new CSS or JS — reuses .v3-hub-marquee + .v3-marquee internals. -->
+  <section class="v3-section v3-section--strip v3-hub-marquee">
+    <div class="v3-marquee" aria-label="RAK freehold zones">
+      <div class="v3-marquee__track">
+        <span class="v3-marquee__item">Al Marjan Island</span>
+        <span class="v3-marquee__sep">·</span>
+        <span class="v3-marquee__item">Al Hamra</span>
+        <span class="v3-marquee__sep">·</span>
+        <span class="v3-marquee__item">Mina Al Arab</span>
+        <span class="v3-marquee__sep">·</span>
+        <span class="v3-marquee__item">RAK Central</span>
+        <span class="v3-marquee__sep">·</span>
+        <span class="v3-marquee__item">Al Nakheel</span>
+        <span class="v3-marquee__sep">·</span>
+        <span class="v3-marquee__item">Dafan Al Maireed</span>
+        <span class="v3-marquee__sep">·</span>
+        <span class="v3-marquee__item" aria-hidden="true">Al Marjan Island</span>
+        <span class="v3-marquee__sep" aria-hidden="true">·</span>
+        <span class="v3-marquee__item" aria-hidden="true">Al Hamra</span>
+        <span class="v3-marquee__sep" aria-hidden="true">·</span>
+        <span class="v3-marquee__item" aria-hidden="true">Mina Al Arab</span>
+        <span class="v3-marquee__sep" aria-hidden="true">·</span>
+        <span class="v3-marquee__item" aria-hidden="true">RAK Central</span>
+        <span class="v3-marquee__sep" aria-hidden="true">·</span>
+        <span class="v3-marquee__item" aria-hidden="true">Al Nakheel</span>
+        <span class="v3-marquee__sep" aria-hidden="true">·</span>
+        <span class="v3-marquee__item" aria-hidden="true">Dafan Al Maireed</span>
+        <span class="v3-marquee__sep" aria-hidden="true">·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUY SHOWCASE — full-bleed dark band, scrub-text h2, plain
+       icon-bullet list (NOT cards), pill CTA on the left + ONE large
+       device-frame mockup on the right (RAK overview · the deck page
+       with the map and plot pins). Single-frame layout was chosen
+       over the previous two-frame stack so the snapshot reads at
+       editorial scale; the previous 380 px cap made the previews too
+       small to be useful. .call-showcase base styles live in
+       v3/css/styles.css; the per-frame sizing is overridden in
+       v3/css/v3.css. -->
+  <section class="call-showcase v3-frame">
+    <div class="call-showcase__copy">
+      <h2 data-scrub><span class="scrub-word">Your</span> <span class="scrub-word">specialist</span> <span class="scrub-word">walks</span> <span class="scrub-word">you</span> <span class="scrub-word">through</span> <span class="scrub-word">the</span> <span class="scrub-word serif">deck,</span> <span class="scrub-word">plot</span> <span class="scrub-word">by</span> <span class="scrub-word">plot.</span></h2>
+      <p>A 20-minute video call with a Namou specialist. We review RAK opportunities on-screen and model the numbers live for every plot you're considering.</p>
+      <ul class="call-showcase__list">
+        <li><span class="material-symbols-outlined" aria-hidden="true">map</span>RAK overview &amp; shortlisted plots mapped on-screen.</li>
+        <li><span class="material-symbols-outlined" aria-hidden="true">monitoring</span>Live ROI — build cost, revenue, margin on every plot.</li>
+        <li><span class="material-symbols-outlined" aria-hidden="true">compare_arrows</span>Side-by-side pricing and payment-plan scenarios.</li>
+      </ul>
+      <a href="https://wa.me/971569636360?text=Hi%2C%20I%27d%20like%20to%20book%20a%20video%20call%20to%20walk%20through%20available%20plots%20with%20a%20Namou%20specialist." target="_blank" rel="noopener" class="call-showcase__cta">
+        Schedule a video call
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="call-showcase__frames call-showcase__frames--single">
+      <div class="call-frame">
+        <div class="call-frame__screen">
+          <img src="/assets/images/deck/deck-master-plan.png" alt="Namou deck — RAK overview screen with map and plot pins" width="3200" height="2000" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="call-frame__cap">RAK overview · map &amp; plot pins on the deck</div>
+    </div>
+  </section>
+
+  <section class="v3-section v3-section--alt v3-frame" id="inventory">
+    <div class="v3-section__inner">
+      <p class="v3-eyebrow">Current pool</p>
+      <h2 class="v3-h2">Current land opportunities.</h2>
+      <div class="v3-fp-filters" role="region" aria-label="Plot filters" id="fpFilters">
+        <div class="v3-fp-filter" data-filter="minSqft">
+          <span class="material-symbols-outlined" aria-hidden="true">straighten</span>
+          <div class="v3-fp-filter__body">
+            <label class="v3-fp-filter__label" for="f-minSqft">Min SQ FT</label>
+            <select id="f-minSqft">
+              <option value="">Any</option>
+              <option value="5000">5,000+</option>
+              <option value="10000">10,000+</option>
+              <option value="25000">25,000+</option>
+              <option value="50000">50,000+</option>
+              <option value="100000">100,000+</option>
+              <option value="250000">250,000+</option>
+              <option value="500000">500,000+</option>
+            </select>
+          </div>
+        </div>
+        <div class="v3-fp-filter" data-filter="maxSqft">
+          <span class="material-symbols-outlined" aria-hidden="true">straighten</span>
+          <div class="v3-fp-filter__body">
+            <label class="v3-fp-filter__label" for="f-maxSqft">Max SQ FT</label>
+            <select id="f-maxSqft">
+              <option value="">Any</option>
+              <option value="10000">Up to 10,000</option>
+              <option value="25000">Up to 25,000</option>
+              <option value="50000">Up to 50,000</option>
+              <option value="100000">Up to 100,000</option>
+              <option value="250000">Up to 250,000</option>
+              <option value="500000">Up to 500,000</option>
+              <option value="9999999">1M+</option>
+            </select>
+          </div>
+        </div>
+        <div class="v3-fp-filter" data-filter="type">
+          <span class="material-symbols-outlined" aria-hidden="true">category</span>
+          <div class="v3-fp-filter__body">
+            <label class="v3-fp-filter__label" for="f-use">Type</label>
+            <select id="f-use">
+              <option value="">All Types</option>
+              <option>Agriculture</option>
+              <option>Commercial</option>
+              <option>Hospitality</option>
+              <option>Industrial</option>
+              <option>Mixed-use</option>
+              <option>Residential</option>
+            </select>
+          </div>
+        </div>
+        <div class="v3-fp-filter" data-filter="area">
+          <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+          <div class="v3-fp-filter__body">
+            <label class="v3-fp-filter__label" for="f-area">Area</label>
+            <select id="f-area">
+              <option value="">All Areas</option>
+              <option>Al Hubaidah</option>
+              <option>Al Maireed</option>
+              <option>Al Marjan</option>
+              <option>Al Nakheel</option>
+              <option>Al shaghi</option>
+              <option>Corniche Al Qawasim</option>
+              <option>Dafan Al Maireed</option>
+              <option>Dafan Khuzam</option>
+              <option>RAK</option>
+              <option>RAK Central</option>
+              <option>Seeh Al Bana</option>
+            </select>
+          </div>
+        </div>
+        <div class="v3-fp-filter" data-filter="budget">
+          <span class="material-symbols-outlined" aria-hidden="true">paid</span>
+          <div class="v3-fp-filter__body">
+            <label class="v3-fp-filter__label" for="f-budget">Budget Range</label>
+            <select id="f-budget">
+              <option value="">All Prices</option>
+              <option value="0-10000000">AED 0–10M</option>
+              <option value="10000000-25000000">AED 10–25M</option>
+              <option value="25000000-100000000">AED 25–100M</option>
+              <option value="100000000-500000000">AED 100–500M</option>
+              <option value="500000000-99999999999">AED 500M+</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <p class="v3-filters__count" id="filter-count">Showing all plots</p>
+
+      <div class="v3-plots" id="plot-grid">
+        <article class="v3-plot" data-use="Agriculture" data-area="Al Hubaidah" data-size="1264714" data-price="15000000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Agricultural%20Farm%20Development%20in%20Al%20Hudaibah%22%20(Al%20Hubaidah%2C%20Agricultural%20Land%20(Non%20Freehold)%2C%20AED%2015M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Agricultural Farm Development in Al Hudaibah — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Agri.png" alt="Agriculture land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Hubaidah</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Agricultural Farm Development in Al Hudaibah</h3>
+              <p class="v3-plot__meta">1,264,714 sqft &nbsp;·&nbsp; AED 12/sqft</p>
+              <p class="v3-plot__price"><strong>AED 15M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Residential" data-area="Al Maireed" data-size="4844" data-price="1800000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Exclusive%20Residential%20Development%20Plot%20in%20Al%20Maireed%22%20(Al%20Maireed%2C%20Residential%20Land%20(Freehold)%2C%20AED%201.8M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Exclusive Residential Development Plot in Al Maireed — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Res.png" alt="Residential land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Maireed</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Exclusive Residential Development Plot in Al Maireed</h3>
+              <p class="v3-plot__meta">4,844 sqft &nbsp;·&nbsp; AED 372/sqft</p>
+              <p class="v3-plot__price"><strong>AED 1.8M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Residential" data-area="Al Maireed" data-size="19375" data-price="6200000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Boutique%20Development%20in%20Al%20Maireed%22%20(Al%20Maireed%2C%20Master%20Residential%20Plot(%20Freehold)%2C%20AED%206.2M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Boutique Development in Al Maireed — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Res.png" alt="Residential land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Maireed</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Boutique Development in Al Maireed</h3>
+              <p class="v3-plot__meta">19,375 sqft &nbsp;·&nbsp; AED 320/sqft</p>
+              <p class="v3-plot__price"><strong>AED 6.2M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Mixed-use" data-area="Al Maireed" data-size="20034" data-price="7200000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Prime%20%20Urban%20Plot%20in%20Al%20Maireed%22%20(Al%20Maireed%2C%20Mixed-Use%20Freehold%20Plot%2C%20AED%207.2M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Prime  Urban Plot in Al Maireed — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Mix.png" alt="Mixed-use land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Maireed</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Prime  Urban Plot in Al Maireed</h3>
+              <p class="v3-plot__meta">20,034 sqft &nbsp;·&nbsp; AED 359/sqft</p>
+              <p class="v3-plot__price"><strong>AED 7.2M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Hospitality" data-area="Al Maireed" data-size="58198" data-price="80000000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Strategic%20Tourism%20Development%20Plot%20in%20Al%20Maireed%22%20(Al%20Maireed%2C%20Tourism%20%2F%20Hospitality%20Land(%20Freehold)%2C%20AED%2080M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Strategic Tourism Development Plot in Al Maireed — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Hos.png" alt="Hospitality land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Maireed</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Strategic Tourism Development Plot in Al Maireed</h3>
+              <p class="v3-plot__meta">58,198 sqft &nbsp;·&nbsp; AED 1,375/sqft</p>
+              <p class="v3-plot__price"><strong>AED 80M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Residential" data-area="Al Maireed" data-size="110100" data-price="38500000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Expansive%20Master%20Plot%20in%20Al%20Maireed%22%20(Al%20Maireed%2C%20Master%20Residential%20Plot(%20Freehold)%2C%20AED%2038.5M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Expansive Master Plot in Al Maireed — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Res.png" alt="Residential land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Maireed</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Expansive Master Plot in Al Maireed</h3>
+              <p class="v3-plot__meta">110,100 sqft &nbsp;·&nbsp; AED 350/sqft</p>
+              <p class="v3-plot__price"><strong>AED 38.5M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Residential" data-area="Al Marjan" data-size="116066" data-price="274177955" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Strategic%20High-Rise%20%7C%2010%20Mins%20to%20Wynn%20Resort%22%20(Al%20Marjan%2C%20Inner%20Plot(%20Freehold)%2C%20AED%20274M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Strategic High-Rise | 10 Mins to Wynn Resort — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Res.png" alt="Residential land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Marjan</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Strategic High-Rise | 10 Mins to Wynn Resort</h3>
+              <p class="v3-plot__meta">116,066 sqft &nbsp;·&nbsp; AED 2,362/sqft</p>
+              <p class="v3-plot__price"><strong>AED 274M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Residential" data-area="Al Marjan" data-size="121551" data-price="264981275" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Beachfront%20Residential%20%7C%2010%20Mins%20to%20Wynn%20Resort%22%20(Al%20Marjan%2C%20Beachfront%20Residential%20Plot(%20Freehold)%2C%20AED%20265M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Beachfront Residential | 10 Mins to Wynn Resort — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Res.png" alt="Residential land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Marjan</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Beachfront Residential | 10 Mins to Wynn Resort</h3>
+              <p class="v3-plot__meta">121,551 sqft &nbsp;·&nbsp; AED 2,180/sqft</p>
+              <p class="v3-plot__price"><strong>AED 265M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Residential" data-area="Al Marjan" data-size="124862" data-price="223892065" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Prime%20High-Rise%20Investment%20%7C%2010%20Mins%20to%20Wynn%20Resort%22%20(Al%20Marjan%2C%20Inner%20Plot(%20Freehold)%2C%20AED%20224M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Prime High-Rise Investment | 10 Mins to Wynn Resort — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Res.png" alt="Residential land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Marjan</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Prime High-Rise Investment | 10 Mins to Wynn Resort</h3>
+              <p class="v3-plot__meta">124,862 sqft &nbsp;·&nbsp; AED 1,793/sqft</p>
+              <p class="v3-plot__price"><strong>AED 224M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Residential" data-area="Al Marjan" data-size="128225" data-price="224480000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22High-Potential%20Tower%20%7C%2010%20Mins%20to%20Wynn%20Resort%22%20(Al%20Marjan%2C%20Inner%20Plot(%20Freehold)%2C%20AED%20224M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="High-Potential Tower | 10 Mins to Wynn Resort — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Res.png" alt="Residential land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Marjan</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">High-Potential Tower | 10 Mins to Wynn Resort</h3>
+              <p class="v3-plot__meta">128,225 sqft &nbsp;·&nbsp; AED 1,751/sqft</p>
+              <p class="v3-plot__price"><strong>AED 224M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Residential" data-area="Al Marjan" data-size="129827" data-price="232793930" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Premium%20High-Rise%20%7C%2010%20Mins%20to%20Wynn%20Resort%22%20(Al%20Marjan%2C%20Inner%20Plot(%20Freehold)%2C%20AED%20233M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Premium High-Rise | 10 Mins to Wynn Resort — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Res.png" alt="Residential land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Marjan</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Premium High-Rise | 10 Mins to Wynn Resort</h3>
+              <p class="v3-plot__meta">129,827 sqft &nbsp;·&nbsp; AED 1,793/sqft</p>
+              <p class="v3-plot__price"><strong>AED 233M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Residential" data-area="Al Marjan" data-size="140849" data-price="270268395" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Prime%20Residential%20Tower%20%20in%20Al%20Marjan%22%20(Al%20Marjan%2C%20Inner%20Plot(%20Freehold)%2C%20AED%2027M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Prime Residential Tower  in Al Marjan — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Res.png" alt="Residential land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Marjan</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Prime Residential Tower  in Al Marjan</h3>
+              <p class="v3-plot__meta">140,849 sqft &nbsp;·&nbsp; AED 1,919/sqft</p>
+              <p class="v3-plot__price"><strong>AED 27M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Hospitality" data-area="Al Marjan" data-size="428635" data-price="1392868560" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Luxury%20Hospitality%20Development%20in%20Al%20Marjan%22%20(Al%20Marjan%2C%20Hospitality%20Plot(%20Freehold)%2C%20AED%201.39B).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Luxury Hospitality Development in Al Marjan — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Hos.png" alt="Hospitality land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Marjan</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Luxury Hospitality Development in Al Marjan</h3>
+              <p class="v3-plot__meta">428,635 sqft &nbsp;·&nbsp; AED 3,250/sqft</p>
+              <p class="v3-plot__price"><strong>AED 1.39B</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Hospitality" data-area="Al Marjan" data-size="636808" data-price="1592019300" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Waterfront%20Hotel%20Convention%20on%20Al%20Marjan%20Island%22%20(Al%20Marjan%2C%20Waterfront%20Access%20Plot(%20Freehold)%2C%20AED%201.59B).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Waterfront Hotel Convention on Al Marjan Island — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Hos.png" alt="Hospitality land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Marjan</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Waterfront Hotel Convention on Al Marjan Island</h3>
+              <p class="v3-plot__meta">636,808 sqft &nbsp;·&nbsp; AED 2,500/sqft</p>
+              <p class="v3-plot__price"><strong>AED 1.59B</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Hospitality" data-area="Al Marjan" data-size="660744" data-price="573718880" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Iconic%20Resort%20%26%20Hospitality%20in%20Al%20Marjan%22%20(Al%20Marjan%2C%20Hospitality%20Plot(%20Freehold)%2C%20AED%20574M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Iconic Resort &amp; Hospitality in Al Marjan — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Hos.png" alt="Hospitality land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Marjan</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Iconic Resort &amp; Hospitality in Al Marjan</h3>
+              <p class="v3-plot__meta">660,744 sqft &nbsp;·&nbsp; AED 868/sqft</p>
+              <p class="v3-plot__price"><strong>AED 574M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Hospitality" data-area="Al Marjan" data-size="1402703" data-price="2805405800" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Landmark%20Hotel%20%26%20Convention%20Development%20%7C%20RAK%20Central%22%20(Al%20Marjan%2C%20Beachfront(%20Freehold)%2C%20AED%202.81B).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Landmark Hotel &amp; Convention Development | RAK Central — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Hos.png" alt="Hospitality land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Marjan</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Landmark Hotel &amp; Convention Development | RAK Central</h3>
+              <p class="v3-plot__meta">1,402,703 sqft &nbsp;·&nbsp; AED 2,000/sqft</p>
+              <p class="v3-plot__price"><strong>AED 2.81B</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Mixed-use" data-area="Al Nakheel" data-size="12578" data-price="20000000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Iconic%20Mixed-Use%20Development%20Plot%20in%20Al%20Nakheel%22%20(Al%20Nakheel%2C%20Mixed-Use%20Plot%20(Freehold)%2C%20AED%2020M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Iconic Mixed-Use Development Plot in Al Nakheel — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Mix.png" alt="Mixed-use land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Nakheel</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Iconic Mixed-Use Development Plot in Al Nakheel</h3>
+              <p class="v3-plot__meta">12,578 sqft &nbsp;·&nbsp; AED 1,591/sqft</p>
+              <p class="v3-plot__price"><strong>AED 20M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Mixed-use" data-area="Al Nakheel" data-size="13695" data-price="25000000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Prestigious%20Mixed-Use%20Development%20Plot%20in%20Al%20Nakheel%22%20(Al%20Nakheel%2C%20Mixed-Use%20Plot%20(Freehold)%2C%20AED%2025M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Prestigious Mixed-Use Development Plot in Al Nakheel — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Mix.png" alt="Mixed-use land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Nakheel</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Prestigious Mixed-Use Development Plot in Al Nakheel</h3>
+              <p class="v3-plot__meta">13,695 sqft &nbsp;·&nbsp; AED 1,826/sqft</p>
+              <p class="v3-plot__price"><strong>AED 25M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Mixed-use" data-area="Al Nakheel" data-size="15370" data-price="6200000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22High-Rise%20Mixed-Use%20Development%20Plot%20in%20Al%20Nakheel%22%20(Al%20Nakheel%2C%20Mixed-Use%20Plot%20(Non%20Freehold)%2C%20AED%206.2M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="High-Rise Mixed-Use Development Plot in Al Nakheel — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Mix.png" alt="Mixed-use land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Nakheel</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">High-Rise Mixed-Use Development Plot in Al Nakheel</h3>
+              <p class="v3-plot__meta">15,370 sqft &nbsp;·&nbsp; AED 403/sqft</p>
+              <p class="v3-plot__price"><strong>AED 6.2M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Mixed-use" data-area="Al Nakheel" data-size="19914" data-price="4100000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Mixed-Use%20Development%20Plot%20in%20Al%20Nakheel%22%20(Al%20Nakheel%2C%20Mixed-Use%20Plot%20(Non%20Freehold)%2C%20AED%204.1M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Mixed-Use Development Plot in Al Nakheel — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Mix.png" alt="Mixed-use land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al Nakheel</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Mixed-Use Development Plot in Al Nakheel</h3>
+              <p class="v3-plot__meta">19,914 sqft &nbsp;·&nbsp; AED 206/sqft</p>
+              <p class="v3-plot__price"><strong>AED 4.1M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Agriculture" data-area="Al shaghi" data-size="981679" data-price="15000000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22High-Value%20Agricultural%20Plot%20in%20Al%20Shaghi%22%20(Al%20shaghi%2C%20Agricultural%20Land(%20Nonfreehold)%2C%20AED%2015M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="High-Value Agricultural Plot in Al Shaghi — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Agri.png" alt="Agriculture land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Al shaghi</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">High-Value Agricultural Plot in Al Shaghi</h3>
+              <p class="v3-plot__meta">981,679 sqft &nbsp;·&nbsp; AED 15/sqft</p>
+              <p class="v3-plot__price"><strong>AED 15M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Mixed-use" data-area="Corniche Al Qawasim" data-size="14920" data-price="16000000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Waterfront%20Mixed-Use%20Development%20Plot%20in%20Corniche%20Al%20Qawasim%22%20(Corniche%20Al%20Qawasim%2C%20Mixed-Use%20Plot%20(Non%20Freehold)%2C%20AED%2016M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Waterfront Mixed-Use Development Plot in Corniche Al Qawasim — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Mix.png" alt="Mixed-use land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Corniche Al Qawasim</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Waterfront Mixed-Use Development Plot in Corniche Al Qawasim</h3>
+              <p class="v3-plot__meta">14,920 sqft &nbsp;·&nbsp; AED 1,072/sqft</p>
+              <p class="v3-plot__price"><strong>AED 16M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Mixed-use" data-area="Dafan Al Maireed" data-size="9360" data-price="4200000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Iconic%20Mixed-Use%20Development%20Plot%20in%20Dafan%20Al%20Maireed%22%20(Dafan%20Al%20Maireed%2C%20Mixed-Use%20Plot%20(Freehold)%2C%20AED%204.2M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Iconic Mixed-Use Development Plot in Dafan Al Maireed — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Mix.png" alt="Mixed-use land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Dafan Al Maireed</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Iconic Mixed-Use Development Plot in Dafan Al Maireed</h3>
+              <p class="v3-plot__meta">9,360 sqft &nbsp;·&nbsp; AED 449/sqft</p>
+              <p class="v3-plot__price"><strong>AED 4.2M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Mixed-use" data-area="Dafan Khuzam" data-size="169010" data-price="90000000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Ultra-Prime%20Mixed-Use%20Development%20Plot%20in%20Dafan%20Khuzam%22%20(Dafan%20Khuzam%2C%20Mixed-Use%20Land%20(%20Nonfreehold)%2C%20AED%2090M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Ultra-Prime Mixed-Use Development Plot in Dafan Khuzam — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Mix.png" alt="Mixed-use land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Dafan Khuzam</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Ultra-Prime Mixed-Use Development Plot in Dafan Khuzam</h3>
+              <p class="v3-plot__meta">169,010 sqft &nbsp;·&nbsp; AED 533/sqft</p>
+              <p class="v3-plot__price"><strong>AED 90M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Residential" data-area="RAK" data-size="146177" data-price="3300000" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Serene%20Farm%20Residential%20Land%20in%20Ras%20Al%20Khaimah%22%20(RAK%2C%20Residential%20Farm%20Plot%20(Non%20Freehold)%2C%20AED%203.3M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Serene Farm Residential Land in Ras Al Khaimah — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Res.png" alt="Residential land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">RAK</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Serene Farm Residential Land in Ras Al Khaimah</h3>
+              <p class="v3-plot__meta">146,177 sqft &nbsp;·&nbsp; AED 23/sqft</p>
+              <p class="v3-plot__price"><strong>AED 3.3M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Commercial" data-area="RAK Central" data-size="134549" data-price="541343600" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Prime%20Commercial%20Office%20%26%20Retail%20in%20RAK%20Central%22%20(RAK%20Central%2C%20Commercial%20(Freehold)%2C%20AED%20541M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Prime Commercial Office &amp; Retail in RAK Central — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Com.png" alt="Commercial land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">RAK Central</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Prime Commercial Office &amp; Retail in RAK Central</h3>
+              <p class="v3-plot__meta">134,549 sqft &nbsp;·&nbsp; AED 4,023/sqft</p>
+              <p class="v3-plot__price"><strong>AED 541M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="v3-plot" data-use="Industrial" data-area="Seeh Al Bana" data-size="239746" data-price="14384760" data-status="Available">
+          <a class="v3-plot__link" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I&#39;m%20interested%20in%20%22Industrial%20Development%20Land%20in%20Seeh%20El%20Bana%22%20(Seeh%20Al%20Bana%2C%20Industrial%20Land%20(Non%20Freehold)%2C%20AED%2014.4M).%20Can%20we%20schedule%20a%20video%20walkthrough%3F" target="_blank" rel="noopener" aria-label="Industrial Development Land in Seeh El Bana — schedule a video walkthrough on WhatsApp">
+            <div class="v3-plot__media"><img class="v3-plot__img" src="/assets/images/Ind.png" alt="Industrial land plot illustration" loading="lazy" decoding="async" width="2172" height="724"></div>
+            <div class="v3-plot__body">
+              <div class="v3-plot__row">
+                <p class="v3-plot__loc">Seeh Al Bana</p>
+                <span class="v3-plot__status v3-plot__status--available">Available</span>
+              </div>
+              <h3 class="v3-plot__title">Industrial Development Land in Seeh El Bana</h3>
+              <p class="v3-plot__meta">239,746 sqft &nbsp;·&nbsp; AED 60/sqft</p>
+              <p class="v3-plot__price"><strong>AED 14.4M</strong></p>
+              <span class="v3-plot__cta">Walk this plot on a video call <span class="material-symbols-outlined">arrow_forward</span></span>
+            </div>
+          </a>
+        </article>
+      </div>
+
+      <div class="v3-plots__more">
+        <button type="button" class="btn btn--ghost" id="plot-more" hidden>See more lands</button>
+      </div>
+
+      <div class="v3-empty" id="plot-empty" hidden>
+        <p>Nothing in current inventory matches that brief. Send us your criteria — area, use, size budget, target IRR — and we'll source against off-market mandates.</p>
+        <div class="v3-cta-row"><a class="btn btn--primary" target="_blank" rel="noopener" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20brief%20intake%3A%20area%2C%20use%2C%20size%20band%2C%20budget%2C%20timeline%2C%20target%20IRR.">Send buyer brief<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="v3-frame-group v3-frame-group--final v3-frame-group--buy-final">
+  <section class="v3-section">
+    <div class="v3-section__inner">
+      <p class="v3-eyebrow">Don't see it?</p>
+      <h2 class="v3-h2">Brief us. We source against your criteria.</h2>
+      <p class="v3-body">Send your criteria — area, size, use, budget, timeline — and we'll come back with a shortlist within 48 hours, including off-market parcels.</p>
+      <div class="v3-cta-row"><a class="btn btn--primary" target="_blank" rel="noopener" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I'd%20like%20to%20send%20a%20buyer%20brief%3A%20area%2C%20size%2C%20use%2C%20budget%2C%20timeline.">Send a brief on WhatsApp<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="/assets/images/logo-dark.png" alt="Namou" class="logo-light" width="330" height="120" style="height:32px;">
+        <p>RAK land, joint ventures, and co-brokerage. Walked plot by plot.</p>
+      </div>
+      <div class="footer__col"><h4>Audiences</h4><a href="/buy/">Buy</a><a href="/sell/">Sell</a><a href="/invest/">Invest</a><a href="/broker/">Brokers</a></div>
+      <div class="footer__col"><h4>Contact</h4><a href="https://wa.me/971569636360">WhatsApp</a><a href="mailto:reachus@namou.ae">reachus@namou.ae</a><span>+971 56 963 6360</span></div>
+      <div class="footer__col"><h4>Office</h4><span>1411, Tower B</span><span>Julphar Towers</span><span>Al Hisn Road, RAK</span><a href="https://maps.google.com/?q=Julphar+Towers+Tower+B+Ras+Al+Khaimah" target="_blank" rel="noopener">Map →</a></div>
+      <div class="footer__map" aria-label="Namou office map"><iframe title="Namou office location map" src="https://www.google.com/maps?q=25.7913739,55.9594599&hl=en&z=18&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a href="https://www.google.com/maps/dir/?api=1&destination=25.7913739,55.9594599" target="_blank" rel="noopener">Open directions →</a></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 Namou Properties LLC.</span><span>RAK DED registered. License-displayed on /v3/about.</span></div>
+  </footer>
+  </div>
+
+  <a href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I%27d%20like%20to%20schedule%20a%20video%20call." target="_blank" rel="noopener" class="wa-float" aria-label="Schedule a video call">
+    <span class="material-symbols-outlined">videocam</span>
+  </a>
+
+  <nav class="mobile-contact-bar" aria-label="Quick contact">
+    <a class="is-primary" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I%27d%20like%20to%20schedule%20a%20video%20call." target="_blank" rel="noopener"><span class="material-symbols-outlined">videocam</span>WhatsApp</a>
+    <a href="tel:+971569636360"><span class="material-symbols-outlined">call</span>Call</a>
+    <a href="mailto:reachus@namou.ae"><span class="material-symbols-outlined">description</span>Email</a>
+  </nav>
+
+  <script src="/v3/js/motion.js"></script>
+  <script src="/v3/js/v3.js"></script>
+</body>
+</html>
