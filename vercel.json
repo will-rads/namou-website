@@ -4,40 +4,6 @@
   "redirects": [
     { "source": "/v3", "destination": "/", "permanent": true },
     { "source": "/v3/", "destination": "/", "permanent": true },
-    { "source": "/v3/buy", "destination": "/buy/", "permanent": true },
-    { "source": "/v3/buy/", "destination": "/buy/", "permanent": true },
-    { "source": "/v3/buy/:slug", "destination": "/buy/:slug/", "permanent": true },
-    { "source": "/v3/buy/:slug/", "destination": "/buy/:slug/", "permanent": true },
-    { "source": "/v3/sell", "destination": "/sell/", "permanent": true },
-    { "source": "/v3/sell/", "destination": "/sell/", "permanent": true },
-    { "source": "/v3/invest", "destination": "/invest/", "permanent": true },
-    { "source": "/v3/invest/", "destination": "/invest/", "permanent": true },
-    { "source": "/v3/invest/:slug", "destination": "/invest/:slug/", "permanent": true },
-    { "source": "/v3/invest/:slug/", "destination": "/invest/:slug/", "permanent": true },
-    { "source": "/v3/broker", "destination": "/broker/", "permanent": true },
-    { "source": "/v3/broker/", "destination": "/broker/", "permanent": true },
-    { "source": "/v3/broker/register", "destination": "/broker/register/", "permanent": true },
-    { "source": "/v3/broker/register/", "destination": "/broker/register/", "permanent": true },
-    { "source": "/v3/about", "destination": "/about/", "permanent": true },
-    { "source": "/v3/about/", "destination": "/about/", "permanent": true }
-  ],
-  "rewrites": [
-    { "source": "/", "destination": "/v3/index.html" },
-    { "source": "/buy", "destination": "/v3/buy/index.html" },
-    { "source": "/buy/", "destination": "/v3/buy/index.html" },
-    { "source": "/buy/:slug", "destination": "/v3/buy/:slug/index.html" },
-    { "source": "/buy/:slug/", "destination": "/v3/buy/:slug/index.html" },
-    { "source": "/sell", "destination": "/v3/sell/index.html" },
-    { "source": "/sell/", "destination": "/v3/sell/index.html" },
-    { "source": "/invest", "destination": "/v3/invest/index.html" },
-    { "source": "/invest/", "destination": "/v3/invest/index.html" },
-    { "source": "/invest/:slug", "destination": "/v3/invest/:slug/index.html" },
-    { "source": "/invest/:slug/", "destination": "/v3/invest/:slug/index.html" },
-    { "source": "/broker", "destination": "/v3/broker/index.html" },
-    { "source": "/broker/", "destination": "/v3/broker/index.html" },
-    { "source": "/broker/register", "destination": "/v3/broker/register/index.html" },
-    { "source": "/broker/register/", "destination": "/v3/broker/register/index.html" },
-    { "source": "/about", "destination": "/v3/about/index.html" },
-    { "source": "/about/", "destination": "/v3/about/index.html" }
+    { "source": "/v3/:path*", "destination": "/:path*", "permanent": true }
   ]
 }

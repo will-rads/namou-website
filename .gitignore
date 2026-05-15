@@ -1,2 +1,13 @@
 # Reference materials (large PDFs, old site files)
 context/
+
+# Local Claude/editor state
+.claude/
+
+# WIP/preview folders not deployed
+v4/
+faxation-Namou-main/
+_tmp_faxation/
+
+# Local notes
+ux-copy-recommendations.txt

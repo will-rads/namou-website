@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule a broker video call — Namou</title>
+  <meta name="description" content="Schedule a video call with Namou to review RAK land opportunities and the A2A process. Brokers fill in details, pick a time, and confirm on WhatsApp.">
+  <meta property="og:title" content="Schedule a broker video call — Namou">
+  <meta property="og:description" content="Schedule a video call with Namou to review RAK land opportunities and the A2A process.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://namou-main.vercel.app/broker/register/">
+
+  <link rel="canonical" href="https://namou-main.vercel.app/broker/register/">
+  <link rel="icon" href="/assets/images/logo-dark.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=arrow_forward,arrow_outward,call,check_circle,close,description,download,explore,handshake,hub,inventory_2,language,location_on,lock,map,monitoring,paid,public,shield,smart_display,trending_up,verified,videocam,visibility,workspaces&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Broker video-call scheduling","url":"https://namou-main.vercel.app/broker/register/","description":"Schedule a video call with Namou to review RAK land opportunities and the A2A process.","serviceType":"Co-brokerage partnership","provider":{"@type":"RealEstateAgent","name":"Namou Properties","url":"https://namou-main.vercel.app/"},"areaServed":{"@type":"Place","name":"Ras Al Khaimah"}}</script>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav__logo"><img src="/assets/images/logo-dark.png" alt="Namou" class="logo-light" width="330" height="120"></a>
+    <div class="nav__links">
+      <a href="/buy/">Buy</a>
+      <a href="/sell/">Sell</a>
+      <a href="/invest/">Invest</a>
+      <a href="/broker/">Brokers</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </nav>
+  <a href="/" class="mobile-home-pill" aria-label="Go to homepage"><img src="/assets/images/logo-dark.png" alt="Namou"></a>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="/buy/">Buy</a>
+    <a href="/sell/">Sell</a>
+    <a href="/invest/">Invest</a>
+    <a href="/broker/">Brokers</a>
+    <a href="/about/">About</a>
+  </div>
+
+  <section class="v3-section v3-hero v3-hero--text">
+    <div class="v3-section__inner">
+      <p class="v3-eyebrow">Schedule a video call</p>
+      <h1 class="v3-h1">Bring your client onto a <span class="v3-serif">Namou-led call</span></h1>
+      <p class="v3-lede">Share your details and pick a preferred call time. Submitting opens WhatsApp with your details so we can send the A2A and confirm the video call</p>
+    </div>
+  </section>
+
+  <section class="v3-section v3-section--alt v3-section--narrow">
+    <div class="v3-section__inner">
+      <form class="v3-eval" id="broker-form" autocomplete="off">
+        <label class="v3-eval__field"><span class="v3-eval__label">Your name</span><input type="text" name="brokerName" required></label>
+        <label class="v3-eval__field"><span class="v3-eval__label">Your company</span><input type="text" name="brokerCompany" required></label>
+        <label class="v3-eval__field"><span class="v3-eval__label">Your WhatsApp / phone</span><input type="tel" name="brokerPhone" placeholder="+971" required></label>
+        <label class="v3-eval__field"><span class="v3-eval__label">Preferred call date</span><input type="date" name="callDate" required></label>
+        <label class="v3-eval__field"><span class="v3-eval__label">Preferred call time</span><input type="time" name="callTime" required></label>
+        <label class="v3-eval__field v3-eval__field--full"><span class="v3-eval__label">Client / land brief notes (optional)</span><textarea name="notes" placeholder="Area, size, use, budget, timeline, anything we should know before the call."></textarea></label>
+        <button type="submit" class="btn btn--primary v3-eval__submit" data-direct-wa="true">Schedule on WhatsApp<svg class="btn__wa-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28z"/></svg></button>
+        <p class="v3-eval__note" id="broker-form-note">Your WhatsApp message includes your call details. Send it to Namou to receive the A2A and video call confirmation</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="v3-section">
+    <div class="v3-section__inner">
+      <p class="v3-eyebrow">What happens next</p>
+      <h2 class="v3-h2">Three steps</h2>
+      <div class="v3-process v3-process--3">
+        <div class="v3-process__step"><span class="v3-process__num">01</span><h3>Submit on WhatsApp</h3><p>Your details go directly to your assigned specialist on WhatsApp</p></div>
+        <div class="v3-process__step"><span class="v3-process__num">02</span><h3>A2A sent to sign</h3><p>We reply with the A2A so it's signed before any inventory is shared</p></div>
+        <div class="v3-process__step"><span class="v3-process__num">03</span><h3>Video call confirmed</h3><p>Once the A2A is signed we confirm the call and present the deck with your client</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="/assets/images/logo-dark.png" alt="Namou" class="logo-light" width="330" height="120" style="height:32px;">
+        <p>Land opportunities in Ras Al Khaimah</p>
+      </div>
+      <div class="footer__col"><h4>Audiences</h4><a href="/buy/">Buy</a><a href="/sell/">Sell</a><a href="/invest/">Invest</a><a href="/broker/">Brokers</a>
+      <a href="/contact/">Contact</a></div>
+      <div class="footer__col"><h4>Contact</h4><a href="https://wa.me/971569636360">WhatsApp</a><span>+971 56 963 6360</span></div>
+      <div class="footer__col"><h4>Office</h4><span>1411, Tower B</span><span>Julphar Towers</span><span>Al Hisn Road, RAK</span><a href="https://maps.google.com/?q=Julphar+Towers+Tower+B+Ras+Al+Khaimah" target="_blank" rel="noopener">Map →</a></div>
+      <div class="footer__map" aria-label="Namou office map"><iframe title="Namou office location map" src="https://www.google.com/maps?q=25.7913739,55.9594599&hl=en&z=18&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a href="https://www.google.com/maps/dir/?api=1&destination=25.7913739,55.9594599" target="_blank" rel="noopener">Open directions →</a></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 Namou Properties LLC.</span><span>RAK DED registered. Trade License 61781</span></div>
+  </footer>
+
+  <a href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I%27d%20like%20to%20schedule%20a%20video%20call." target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp Namou">
+    <span class="material-symbols-outlined">call</span>
+  </a>
+
+  <nav class="mobile-contact-bar" aria-label="Quick contact">
+    <a class="is-primary" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I%27d%20like%20to%20schedule%20a%20video%20call." target="_blank" rel="noopener"><span class="material-symbols-outlined">call</span>WhatsApp</a>
+    <a href="tel:+971569636360"><span class="material-symbols-outlined">call</span>Call</a>
+  </nav>
+
+  <script src="/js/motion.js"></script>
+  <script src="/js/site.js"></script>
+</body>
+</html>
