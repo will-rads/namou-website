@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TL47HVWV');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Schedule a broker video call — Namou</title>
@@ -19,8 +26,10 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/site.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Broker video-call scheduling","url":"https://namou-main.vercel.app/broker/register/","description":"Schedule a video call with Namou to review RAK land opportunities and the A2A process.","serviceType":"Co-brokerage partnership","provider":{"@type":"RealEstateAgent","name":"Namou Properties","url":"https://namou-main.vercel.app/"},"areaServed":{"@type":"Place","name":"Ras Al Khaimah"}}</script>
+  <script src="/js/posthog-init.js"></script>
 </head>
 <body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL47HVWV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav class="nav">
     <a href="/" class="nav__logo"><img src="/assets/images/logo-dark.png" alt="Namou" class="logo-light" width="330" height="120"></a>
     <div class="nav__links">
@@ -42,7 +51,6 @@
 
   <section class="v3-section v3-hero v3-hero--text">
     <div class="v3-section__inner">
-      <p class="v3-eyebrow">Schedule a video call</p>
       <h1 class="v3-h1">Bring your client onto a <span class="v3-serif">Namou-led call</span></h1>
       <p class="v3-lede">Share your details and pick a preferred call time. Submitting opens WhatsApp with your details so we can send the A2A and confirm the video call</p>
     </div>
@@ -65,7 +73,6 @@
 
   <section class="v3-section">
     <div class="v3-section__inner">
-      <p class="v3-eyebrow">What happens next</p>
       <h2 class="v3-h2">Three steps</h2>
       <div class="v3-process v3-process--3">
         <div class="v3-process__step"><span class="v3-process__num">01</span><h3>Submit on WhatsApp</h3><p>Your details go directly to your assigned specialist on WhatsApp</p></div>
@@ -78,13 +85,9 @@
 
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__brand">
-        <img src="/assets/images/logo-dark.png" alt="Namou" class="logo-light" width="330" height="120" style="height:32px;">
-        <p>Land opportunities in Ras Al Khaimah</p>
-      </div>
       <div class="footer__col"><h4>Audiences</h4><a href="/buy/">Buy</a><a href="/sell/">Sell</a><a href="/invest/">Invest</a><a href="/broker/">Brokers</a>
       <a href="/contact/">Contact</a></div>
-      <div class="footer__col"><h4>Contact</h4><a href="https://wa.me/971569636360">WhatsApp</a><span>+971 56 963 6360</span></div>
+      <div class="footer__col"><h4>Contact</h4><a href="https://wa.me/971569636360">WhatsApp</a><span>+971 56 963 6360</span><span>+971 4 542 6994</span></div>
       <div class="footer__col"><h4>Office</h4><span>1411, Tower B</span><span>Julphar Towers</span><span>Al Hisn Road, RAK</span><a href="https://maps.google.com/?q=Julphar+Towers+Tower+B+Ras+Al+Khaimah" target="_blank" rel="noopener">Map →</a></div>
       <div class="footer__map" aria-label="Namou office map"><iframe title="Namou office location map" src="https://www.google.com/maps?q=25.7913739,55.9594599&hl=en&z=18&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a href="https://www.google.com/maps/dir/?api=1&destination=25.7913739,55.9594599" target="_blank" rel="noopener">Open directions →</a></div>
     </div>
@@ -102,5 +105,7 @@
 
   <script src="/js/motion.js"></script>
   <script src="/js/site.js"></script>
+  <script src="/js/attribution.js"></script>
+  <script src="/js/posthog-events.js"></script>
 </body>
 </html>

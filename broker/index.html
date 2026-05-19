@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TL47HVWV');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Co-broker with Namou — Deal protection for brokers</title>
@@ -19,8 +26,10 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/site.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Co-broker with Namou","url":"https://namou-main.vercel.app/broker/","description":"Written A2A, buyer protection, fair splits.","serviceType":"Co-brokerage partnership","provider":{"@type":"RealEstateAgent","name":"Namou Properties","url":"https://namou-main.vercel.app/"},"areaServed":{"@type":"Place","name":"Ras Al Khaimah"}}</script>
+  <script src="/js/posthog-init.js"></script>
 </head>
 <body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL47HVWV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav class="nav">
     <a href="/" class="nav__logo"><img src="/assets/images/logo-dark.png" alt="Namou" class="logo-light" width="330" height="120"></a>
     <div class="nav__links">
@@ -51,7 +60,7 @@
       <h1 class="v3-h1">Co-broker with<br><span class="v3-serif">clear deal protection</span></h1>
       <p class="v3-lede copy-desktop">Bring a client requirement to Namou. We support the opportunity, ground checks, and call while your role is protected for that agreed deal process</p>
       <p class="v3-lede copy-mobile">Bring a client requirement and protect your role for the agreed deal</p>
-      <div class="v3-cta-row"><a class="btn btn--primary" href="/broker/register/" aria-label="Schedule a broker WhatsApp call">Schedule on WhatsApp<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="v3-cta-row"><a class="btn btn--primary" href="/broker/register/" aria-label="Schedule video call on WhatsApp">Schedule video call on WhatsApp<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </section>
 
@@ -85,7 +94,6 @@
        used to live. -->
   <section class="v3-section">
     <div class="v3-section__inner">
-      <p class="v3-eyebrow">Inventory access</p>
       <h2 class="v3-h2">What brokers gain<br>by partnering with Namou</h2>
       <div class="v3-feature-row v3-feature-row--3">
         <div class="v3-feature"><span class="material-symbols-outlined v3-feature__icon">inventory_2</span><h3>Verified land opportunities</h3><p>Access hospitality, mixed-use, residential, commercial, and off-market land opportunities across Ras Al Khaimah</p></div>
@@ -97,7 +105,6 @@
 
   <section class="v3-section">
     <div class="v3-section__inner">
-      <p class="v3-eyebrow">Broker flow</p>
       <h2 class="v3-h2">Reach out<br>to become an official partner</h2>
       <div class="v3-broker-flow">
         <div class="v3-broker-flow__step"><span class="v3-broker-flow__num">01</span><span class="material-symbols-outlined v3-broker-flow__icon" aria-hidden="true">call</span><h3>Reach out</h3></div>
@@ -120,20 +127,16 @@
   <section class="v3-section v3-section--alt v3-section--cta">
     <div class="v3-section__inner">
       <h2 class="v3-h2 v3-h2--center">Start the broker process with Namou</h2>
-      <div class="v3-cta-row v3-cta-row--center"><a class="btn btn--primary" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I%27d%20like%20to%20schedule%20a%20broker%20call." target="_blank" rel="noopener" aria-label="Schedule a broker WhatsApp call">Schedule on WhatsApp<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="v3-cta-row v3-cta-row--center"><a class="btn btn--primary" href="https://wa.me/971569636360?text=Hi%20Namou%20%E2%80%94%20I%27d%20like%20to%20schedule%20a%20broker%20call." target="_blank" rel="noopener" aria-label="Schedule video call on WhatsApp">Schedule video call on WhatsApp<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </section>
 
 
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__brand">
-        <img src="/assets/images/logo-dark.png" alt="Namou" class="logo-light" width="330" height="120" style="height:32px;">
-        <p>Land opportunities in Ras Al Khaimah</p>
-      </div>
       <div class="footer__col"><h4>Audiences</h4><a href="/buy/">Buy</a><a href="/sell/">Sell</a><a href="/invest/">Invest</a><a href="/broker/">Brokers</a>
       <a href="/contact/">Contact</a></div>
-      <div class="footer__col"><h4>Contact</h4><a href="https://wa.me/971569636360">WhatsApp</a><span>+971 56 963 6360</span></div>
+      <div class="footer__col"><h4>Contact</h4><a href="https://wa.me/971569636360">WhatsApp</a><span>+971 56 963 6360</span><span>+971 4 542 6994</span></div>
       <div class="footer__col"><h4>Office</h4><span>1411, Tower B</span><span>Julphar Towers</span><span>Al Hisn Road, RAK</span><a href="https://maps.google.com/?q=Julphar+Towers+Tower+B+Ras+Al+Khaimah" target="_blank" rel="noopener">Map →</a></div>
       <div class="footer__map" aria-label="Namou office map"><iframe title="Namou office location map" src="https://www.google.com/maps?q=25.7913739,55.9594599&hl=en&z=18&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a href="https://www.google.com/maps/dir/?api=1&destination=25.7913739,55.9594599" target="_blank" rel="noopener">Open directions →</a></div>
     </div>
@@ -152,5 +155,7 @@
 
   <script src="/js/motion.js"></script>
   <script src="/js/site.js"></script>
+  <script src="/js/attribution.js"></script>
+  <script src="/js/posthog-events.js"></script>
 </body>
 </html>

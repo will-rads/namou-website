@@ -213,7 +213,7 @@
 .v3-case__feature {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   min-height: 480px;
   padding: 0;
   border-radius: 24px;
@@ -241,8 +241,12 @@
   color: #fff;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
   gap: 16px;
-  max-width: 560px;
+  width: 100%;
+  max-width: none;
 }
 .v3-case__feature-title {
   font-family: "DM Sans", -apple-system, sans-serif;
@@ -256,15 +260,17 @@
 }
 .v3-case__feature-text {
   font-family: "DM Sans", -apple-system, sans-serif;
-  font-size: clamp(0.9375rem, 1.05vw, 1.0625rem);
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(1.0625rem, 1.25vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
   margin: 0;
+  max-width: 56ch;
 }
 .v3-case__feature-cta {
   display: inline-flex;
   align-items: center;
-  align-self: flex-start;
+  align-self: center;
   gap: 10px;
   margin-top: 8px;
   padding: 14px 26px;
@@ -789,7 +795,7 @@
 }
 
 .footer__inner {
-  grid-template-columns: minmax(220px, 2fr) minmax(120px, 0.8fr) minmax(170px, 1fr) minmax(180px, 1fr) minmax(220px, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(24px, 3vw, 48px);
   align-items: start;
 }
@@ -4498,11 +4504,19 @@
   color: #fff;
   border-top-color: rgba(255, 255, 255, 0.12);
 }
+/* Footer logo on dark-frame pages: namou-logo-2.png is already a
+   coloured mark (green on white), so the legacy brightness(0)
+   invert(1) silhouette flip used for the old transparent logo no
+   longer applies — it would turn the whole image into a solid
+   white square. mix-blend-mode: multiply blends the white image
+   background into the dark footer surface so only the green
+   wordmark reads through. */
 .v3-frame-group--home-final > .footer .footer__brand img,
 .v3-frame-group--buy-final > .footer .footer__brand img,
 .v3-frame-group--invest-final > .footer .footer__brand img,
 .v3-frame-group--broker-final > .footer .footer__brand img {
-  filter: brightness(0) invert(1);
+  filter: none;
+  mix-blend-mode: multiply;
 }
 .v3-frame-group--home-final > .footer .footer__brand p,
 .v3-frame-group--buy-final > .footer .footer__brand p,
@@ -4780,12 +4794,10 @@
 
   .v3-cta-panel--sell-final {
     grid-template-columns: 1fr;
-    /* Single-CTA variant: group copy + the lone WhatsApp button as a centered
-       vertical cluster instead of pushing them to opposite ends of the card.
-       (Was `align-content: space-between` when the panel had two CTAs — that
-       produced an awkward dead band between the trust bullets and the buttons
-       once the secondary `Or upload your deed` ghost was removed.) */
-    align-content: center;
+    /* Distribute the copy block + CTA evenly down the card so the
+       breathing room above the eyebrow, between the bullets and the
+       button, and below the button are all equal — no dead band. */
+    align-content: space-evenly;
     row-gap: clamp(24px, 3.5vh, 44px);
     padding: clamp(28px, 3.2vw, 44px);
   }
@@ -6090,7 +6102,6 @@
 .v3-body,
 .v3-prose p,
 .v3-case__lede,
-.v3-case__feature-text,
 .v3-case__card-body,
 .reveal__lede,
 .lane__body,
@@ -6225,12 +6236,36 @@ figcaption {
   color: var(--v2-accent-on-dark) !important;
 }
 
-.section--lanes .lane:hover :is(h3, p, .lane__eyebrow, .lane__body, .btn--ghost) {
+/* Lane card hover: invert the entire content of the hovered lane to
+   dark text on the light card surface. Spells out every text node
+   the lane carries by class so it beats both the global on-dark
+   "text inside section--lanes" override AND the legacy .lane:hover
+   .lane__body rule in styles.css that was forcing the body line
+   back to translucent white on hover. */
+.section--lanes .lane:hover,
+.section--lanes .lane:hover *,
+.section--lanes .lane:hover .lane__eyebrow,
+.section--lanes .lane:hover .lane__body,
+.section--lanes .lane:hover p,
+.section--lanes .lane:hover h3,
+.section--lanes .lane:hover span,
+.section--lanes .lane:hover .btn--ghost {
   color: var(--v2-text-on-light) !important;
 }
-
-.section--lanes .lane:hover .lane__heading {
-  color: var(--accent) !important;
+.section--lanes .lane:hover .lane__heading,
+.section--lanes .lane:hover .lane__heading * {
+  color: var(--accent-deep, var(--accent)) !important;
+}
+.section--lanes .lane:hover .btn--ghost {
+  border-color: var(--rule, rgba(0, 0, 0, 0.18)) !important;
+}
+.section--lanes .lane:hover .btn--ghost:hover {
+  background: var(--ink) !important;
+  border-color: var(--ink) !important;
+}
+.section--lanes .lane:hover .btn--ghost:hover,
+.section--lanes .lane:hover .btn--ghost:hover * {
+  color: #ffffff !important;
 }
 
 /* Mobile broker process: render the steps as rows, not swipe columns. */

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TL47HVWV');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#003D2E">
@@ -64,9 +71,10 @@
     "sameAs": []
   }
   </script>
+  <script src="/js/posthog-init.js"></script>
 </head>
 <body>
-
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL47HVWV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- NAV -->
   <nav class="nav">
     <a href="/" class="nav__logo">
@@ -123,7 +131,6 @@
   <!-- RAK INVESTMENT CASE — feature card + 2×2 supporting cards -->
   <section class="section v3-case v3-frame">
     <div class="section__inner">
-      <p class="v3-case__eyebrow motion-fade">RAK investment case</p>
       <h2 class="v3-case__title motion-fade">
         <span class="v3-case__title-line">Ras Al Khaimah is</span>
         <span class="v3-case__title-line">entering a new <span class="serif">growth cycle</span>.</span>
@@ -199,10 +206,9 @@
       <figure class="reveal__showcase motion-fade">
         <div class="call-frame">
           <div class="call-frame__screen">
-            <img src="/assets/images/roi-simulator.png" alt="Namou ROI simulator — total revenue, total cost, total profit, profit margin, and profit-vs-exit-price chart" width="1909" height="942" loading="lazy" decoding="async">
+            <img src="/assets/images/ROI-SIMULATOR (2).png" alt="Namou ROI simulator — total revenue, total cost, total profit, profit margin, and profit-vs-exit-price chart" width="1785" height="881" loading="lazy" decoding="async">
           </div>
         </div>
-        <figcaption>A live look at the ROI simulator we walk you through on the call.</figcaption>
       </figure>
     </div>
   </section>
@@ -326,10 +332,6 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__brand">
-        <img src="/assets/images/logo-dark.png" alt="Namou" class="logo-light" width="330" height="120" style="height:32px;">
-        <p>Land opportunities in Ras Al Khaimah</p>
-      </div>
       <div class="footer__col">
         <h4>Explore</h4>
         <a href="/buy/">Buy</a>
@@ -342,7 +344,7 @@
         <h4>Contact</h4>
         <a href="https://wa.me/971569636360">WhatsApp</a>
         <a href="mailto:reachus@namou.ae">reachus@namou.ae</a>
-        <span>+971 56 963 6360</span>
+        <span>+971 56 963 6360</span><span>+971 4 542 6994</span>
       </div>
       <div class="footer__col">
         <h4>Office</h4>
@@ -366,6 +368,8 @@
 
   <script src="/js/motion.js"></script>
   <script src="/js/site.js"></script>
+  <script src="/js/attribution.js"></script>
+  <script src="/js/posthog-events.js"></script>
   <!-- Mobile sticky contact bar (mobile only) -->
   <nav class="mobile-contact-bar" aria-label="Quick contact">
     <a class="is-primary" href="https://wa.me/971569636360?text=Hi%2C%20I%27d%20like%20to%20schedule%20a%20video%20call%20with%20Namou." target="_blank" rel="noopener">

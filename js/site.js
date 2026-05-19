@@ -213,7 +213,7 @@
     if (area.indexOf("qawasim") !== -1) return { src: "/assets/images/Corniche Al Qawasim.png", alt: "Corniche Al Qawasim land opportunity image", width: 2172, height: 724 };
     if (area.indexOf("corniche") !== -1) return { src: "/assets/images/Al Corniche.png", alt: "Al Corniche land opportunity image", width: 2172, height: 724 };
     if (area.indexOf("hudaibah") !== -1) return { src: "/assets/images/Seih Al Hudaibah.png", alt: "Al Hudaibah land opportunity image", width: 2172, height: 724 };
-    if (area.indexOf("bana") !== -1) return { src: "/assets/images/Seeh Al Bana.png", alt: "Seeh Al Bana land opportunity image", width: 2172, height: 724 };
+    if (area.indexOf("bana") !== -1) return { src: "/assets/images/Seeh Al Banah.png", alt: "Seeh Al Banah land opportunity image", width: 2172, height: 724 };
     if (use.indexOf("agric") !== -1) return { src: "/assets/images/Agri.png", alt: "Agriculture land plot illustration", width: 2172, height: 724 };
     if (use.indexOf("residential") !== -1) return { src: "/assets/images/RAK.png", alt: "RAK land opportunity image", width: 2172, height: 724 };
     if (use.indexOf("commercial") !== -1) return { src: "/assets/images/RAK.png", alt: "RAK land opportunity image", width: 2172, height: 724 };
